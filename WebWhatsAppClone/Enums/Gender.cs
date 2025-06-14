@@ -7,5 +7,4 @@
         Female = 2,      
         PreferNotToSay = 3
     }
-
 }
