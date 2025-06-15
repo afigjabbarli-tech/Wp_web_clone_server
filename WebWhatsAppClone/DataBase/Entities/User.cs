@@ -1,7 +1,7 @@
 ﻿using WebWhatsAppClone.DataBase.Base;
 using WebWhatsAppClone.Enums;
 
-namespace WebWhatsAppClone.DataBase
+namespace WebWhatsAppClone.DataBase.Entities
 {
     public class User : AuditableEntity<Guid, DateTimeOffset>
     {

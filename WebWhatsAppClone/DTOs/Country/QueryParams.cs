@@ -13,6 +13,5 @@ namespace WebWhatsAppClone.DTOs.Country
         public string column_name { get; set; } = string.Empty;
         public List<SortOption> sort_options { get; set; } = new List<SortOption>();
         public List<FilterOption> filter_options { get; set; } = new List<FilterOption>();
-
     }
 }

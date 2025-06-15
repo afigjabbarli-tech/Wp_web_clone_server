@@ -1,6 +1,6 @@
 ﻿using WebWhatsAppClone.DataBase.Base;
 
-namespace WebWhatsAppClone.DataBase
+namespace WebWhatsAppClone.DataBase.Entities
 {
     public class SocialPlatform : AuditableEntity<Guid, DateTimeOffset>
     {

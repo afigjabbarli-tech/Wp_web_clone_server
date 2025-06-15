@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using WebWhatsAppClone.DataBase;
+using WebWhatsAppClone.Services.Abstracts;
+using WebWhatsAppClone.Services.Concretes;
+
 namespace WebWhatsAppClone
 {
     public class Program
@@ -13,6 +18,15 @@ namespace WebWhatsAppClone
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services
+            .AddDbContext<DataContext>(ob =>
+            {
+                var connectionString = builder.Configuration.GetConnectionString("Default");
+
+                ob.UseNpgsql(connectionString);
+            })
+            .AddScoped<IFileStorageService, FileStorageService>();
 
             var app = builder.Build();
 
