@@ -14,5 +14,6 @@ namespace WebWhatsAppClone.DataBase
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<FileCategory> FileCategories { get; set; }
+        public DbSet<FileFormat> FileFormats { get; set; }
     }
 }

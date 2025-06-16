@@ -8,6 +8,12 @@ namespace WebWhatsAppClone.DataBase.Configurations
     {
         public void Configure(EntityTypeBuilder<FileCategory> builder)
         {
+            builder.HasKey((fc) => fc.id);
+            builder
+            .HasMany<FileFormat>((fc) => fc.file_formats)
+            .WithOne((ff) => ff.file_category)
+            .HasForeignKey((ff) => ff.file_category_id)
+            .OnDelete(DeleteBehavior.Cascade);
             builder.HasData
             (new FileCategory
             {
