@@ -1,6 +1,10 @@
-
+using FluentValidation;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebWhatsAppClone.DataBase;
+using WebWhatsAppClone.DTOs.FileFormat;
+using WebWhatsAppClone.Helpers;
 using WebWhatsAppClone.Services.Abstracts;
 using WebWhatsAppClone.Services.Concretes;
 
@@ -15,6 +19,9 @@ namespace WebWhatsAppClone
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddValidatorsFromAssemblyContaining<FileFormatCreateDTO>();
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -26,7 +33,13 @@ namespace WebWhatsAppClone
 
                 ob.UseNpgsql(connectionString);
             })
-            .AddScoped<IFileStorageService, FileStorageService>();
+            .AddScoped<IFileStorageService, FileStorageService>()
+            .AddSingleton<ReflectionHelper>();
+
+            builder.Services.Configure<ApiBehaviorOptions>((c) =>
+            {
+                c.SuppressModelStateInvalidFilter = true;
+            });
 
             var app = builder.Build();
 

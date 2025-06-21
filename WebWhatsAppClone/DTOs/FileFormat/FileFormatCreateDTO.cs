@@ -9,5 +9,6 @@
         public string mime_type { get; set; } = string.Empty;
         public string extension { get; set; } = string.Empty;
         public long maximum_size { get; set; }
+        public Guid file_category_id { get; set; }
     }
 }
