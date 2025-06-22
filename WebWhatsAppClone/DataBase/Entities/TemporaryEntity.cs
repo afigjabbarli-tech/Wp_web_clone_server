@@ -2,5 +2,5 @@
 
 namespace WebWhatsAppClone.DataBase.Entities
 {
-    public class TemporaryEntity: AuditableEntity<Guid, DateTimeOffset> { }
+    public class TemporaryEntity { }
 }

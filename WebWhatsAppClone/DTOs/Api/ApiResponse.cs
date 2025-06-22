@@ -5,7 +5,7 @@ namespace WebWhatsAppClone.DTOs.Api
 {
     public class ApiResponse<TData, TDate>
         where TDate : struct
-        where TData : AuditableEntity<Guid, DateTimeOffset>
+        where TData : class
     {
         public string message { get; set; } = string.Empty;
         public string? error_details { get; set; } = string.Empty;

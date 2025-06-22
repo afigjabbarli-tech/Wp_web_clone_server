@@ -1,5 +1,4 @@
 using FluentValidation;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebWhatsAppClone.DataBase;
@@ -21,7 +20,7 @@ namespace WebWhatsAppClone
             builder.Services.AddControllers();
             builder.Services.AddValidatorsFromAssemblyContaining<FileFormatCreateDTO>();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
