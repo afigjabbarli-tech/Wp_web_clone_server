@@ -6,6 +6,7 @@
     {
         TKey? created_by { get; set; }
         TDate created_at { get; set; }
+        bool is_updated { get; set; }
         TKey? updated_by { get; set; }
         TDate? updated_at { get; set; }
         bool is_active { get; set; }

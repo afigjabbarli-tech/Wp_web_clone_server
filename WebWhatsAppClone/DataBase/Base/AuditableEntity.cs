@@ -6,6 +6,7 @@
     {
         public TKey? created_by { get; set; }
         public TDate created_at { get; set; }
+        public bool is_updated { get; set; } = false;
         public TKey? updated_by { get; set; }
         public TDate? updated_at { get; set; }
         public bool is_active { get; set; } = true;
