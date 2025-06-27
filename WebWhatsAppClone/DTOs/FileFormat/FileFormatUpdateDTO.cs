@@ -1,6 +1,6 @@
 ﻿namespace WebWhatsAppClone.DTOs.FileFormat
 {
-    public class FileFormatShowDTO
+    public class FileFormatUpdateDTO
     {
         public string key { get; set; } = string.Empty;
         public string label { get; set; } = string.Empty;

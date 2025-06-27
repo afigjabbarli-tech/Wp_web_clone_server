@@ -4,14 +4,11 @@ using WebWhatsAppClone.DTOs.FileFormat;
 
 namespace WebWhatsAppClone.Validators.FileFormat
 {
-    public class FileFormatValidator : AbstractValidator<FileFormatCreateDTO>
+    public class FileFormatUpdateValidator : AbstractValidator<FileFormatUpdateDTO>
     {
-        public FileFormatValidator()
+        public FileFormatUpdateValidator()
         {
             RuleFor(data => data.key)
-                .NotNull()
-                    .WithMessage("The field named Key must have a value!")
-                    .WithState(_ => new { SuggestedValue = "examplekey" })
                 .NotEmpty()
                     .WithMessage("The field named Key cannot be empty!")
                     .WithState(_ => new { SuggestedValue = "examplekey" })
@@ -23,9 +20,6 @@ namespace WebWhatsAppClone.Validators.FileFormat
                     .WithState(_ => new { SuggestedValue = "examplekey" });
 
             RuleFor(data => data.label)
-                .NotNull()
-                    .WithMessage("The field named Label must have a value!")
-                    .WithState(_ => new { SuggestedValue = "EXAMPLE" })
                 .NotEmpty()
                     .WithMessage("The field named Label cannot be empty!")
                     .WithState(_ => new { SuggestedValue = "EXAMPLE" })
@@ -37,9 +31,6 @@ namespace WebWhatsAppClone.Validators.FileFormat
                     .WithState(_ => new { SuggestedValue = "EXAMPLE" });
 
             RuleFor(data => data.name)
-                .NotNull()
-                    .WithMessage("The field named Name must have a value!")
-                    .WithState(_ => new { SuggestedValue = "Example Name" })
                 .NotEmpty()
                     .WithMessage("The field named Name cannot be empty!")
                     .WithState(_ => new { SuggestedValue = "Example Name" })
@@ -48,9 +39,6 @@ namespace WebWhatsAppClone.Validators.FileFormat
                     .WithState(_ => new { SuggestedValue = "Example Name" });
 
             RuleFor(data => data.description)
-                .NotNull()
-                    .WithMessage("The field named Description must have a value!")
-                    .WithState(_ => new { SuggestedValue = "This is a detailed description with at least 25 characters." })
                 .NotEmpty()
                     .WithMessage("The field named Description cannot be empty!")
                     .WithState(_ => new { SuggestedValue = "This is a detailed description with at least 25 characters." })
@@ -62,9 +50,6 @@ namespace WebWhatsAppClone.Validators.FileFormat
                     .WithState(_ => new { SuggestedValue = "This is a detailed description with at most 250 characters." });
 
             RuleFor(data => data.mime_type)
-                .NotNull()
-                    .WithMessage("The field named Mime type must have a value!")
-                    .WithState(_ => new { SuggestedValue = "image/png" })
                 .NotEmpty()
                     .WithMessage("The field named Mime type cannot be empty!")
                     .WithState(_ => new { SuggestedValue = "image/png" })
@@ -79,9 +64,6 @@ namespace WebWhatsAppClone.Validators.FileFormat
                     .WithState(_ => new { SuggestedValue = "image/png" });
 
             RuleFor(data => data.extension)
-                .NotNull()
-                    .WithMessage("The field named Extension must have a value!")
-                    .WithState(_ => new { SuggestedValue = ".png" })
                 .NotEmpty()
                     .WithMessage("The field named Extension cannot be empty!")
                     .WithState(_ => new { SuggestedValue = ".png" })
@@ -93,9 +75,6 @@ namespace WebWhatsAppClone.Validators.FileFormat
                     .WithState(_ => new { SuggestedValue = ".png" });
 
             RuleFor(data => data.maximum_size)
-                .NotNull()
-                    .WithMessage("The field named Maximum size must have a value!")
-                    .WithState(_ => new { SuggestedValue = 1024 })
                 .GreaterThan(0)
                     .WithMessage("The field named Maximum size must be greater than 0!")
                     .WithState(_ => new { SuggestedValue = 1024 });
@@ -104,6 +83,11 @@ namespace WebWhatsAppClone.Validators.FileFormat
                 .NotEmpty()
                     .WithMessage("File category ID must be provided.")
                     .WithState(_ => new { SuggestedValue = Guid.Parse("00000000-0000-0000-0000-000000000000") });
+
+            RuleFor(data => data.is_deprecated)
+                .Must(x => x == true || x == false)
+                    .WithMessage("The field named Is Deprecated must be a boolean value (true or false).")
+                    .WithState(_ => new { SuggestedValue = false });
         }
     }
 }

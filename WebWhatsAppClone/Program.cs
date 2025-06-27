@@ -2,6 +2,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebWhatsAppClone.DataBase;
+using WebWhatsAppClone.DTOs.FileCategory;
 using WebWhatsAppClone.DTOs.FileFormat;
 using WebWhatsAppClone.Helpers;
 using WebWhatsAppClone.Services.Abstracts;
@@ -19,6 +20,9 @@ namespace WebWhatsAppClone
 
             builder.Services.AddControllers();
             builder.Services.AddValidatorsFromAssemblyContaining<FileFormatCreateDTO>();
+            builder.Services.AddValidatorsFromAssemblyContaining<FileFormatUpdateDTO>();
+            builder.Services.AddValidatorsFromAssemblyContaining<FileCategoryCreateDTO>();
+            builder.Services.AddValidatorsFromAssemblyContaining<FileCategoryUpdateDTO>();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
