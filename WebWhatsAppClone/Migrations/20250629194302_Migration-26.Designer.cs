@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebWhatsAppClone.DataBase;
@@ -11,9 +12,11 @@ using WebWhatsAppClone.DataBase;
 namespace WebWhatsAppClone.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250629194302_Migration-26")]
+    partial class Migration26
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2818,7 +2821,7 @@ namespace WebWhatsAppClone.Migrations
 
                     b.HasIndex("region_id");
 
-                    b.ToTable("SubRegions");
+                    b.ToTable("SubRegion");
 
                     b.HasData(
                         new

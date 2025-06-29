@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebWhatsAppClone.DataBase;
@@ -11,9 +12,11 @@ using WebWhatsAppClone.DataBase;
 namespace WebWhatsAppClone.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250629082153_Migration-21")]
+    partial class Migration21
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,8 +127,8 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "as",
-                            label = "Asia",
+                            key = "",
+                            label = "",
                             largest_country = "Russia",
                             most_populous_country = "China",
                             name = "Asia",
@@ -145,8 +148,8 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "af",
-                            label = "Africa",
+                            key = "",
+                            label = "",
                             largest_country = "Algeria",
                             most_populous_country = "Nigeria",
                             name = "Africa",
@@ -166,8 +169,8 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "na",
-                            label = "North America",
+                            key = "",
+                            label = "",
                             largest_country = "Canada",
                             most_populous_country = "United States",
                             name = "North America",
@@ -187,8 +190,8 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "sa",
-                            label = "South America",
+                            key = "",
+                            label = "",
                             largest_country = "Brazil",
                             most_populous_country = "Brazil",
                             name = "South America",
@@ -208,8 +211,8 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "an",
-                            label = "Antarctica",
+                            key = "",
+                            label = "",
                             largest_country = "",
                             most_populous_country = "",
                             name = "Antarctica",
@@ -229,8 +232,8 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "eu",
-                            label = "Europe",
+                            key = "",
+                            label = "",
                             largest_country = "Russia",
                             most_populous_country = "Russia",
                             name = "Europe",
@@ -250,8 +253,8 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "oc",
-                            label = "Australia",
+                            key = "",
+                            label = "",
                             largest_country = "Australia",
                             most_populous_country = "Australia",
                             name = "Australia",
@@ -2142,14 +2145,6 @@ namespace WebWhatsAppClone.Migrations
                     b.Property<bool>("is_updated")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("key")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("label")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("largest_country")
                         .IsRequired()
                         .HasColumnType("text");
@@ -2206,8 +2201,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "naf",
-                            label = "Northern Africa",
                             largest_country = "Algeria",
                             most_populous_country = "Egypt",
                             name = "Northern Africa",
@@ -2228,8 +2221,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "waf",
-                            label = "Western Africa",
                             largest_country = "Niger",
                             most_populous_country = "Nigeria",
                             name = "Western Africa",
@@ -2250,8 +2241,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "maf",
-                            label = "Middle Africa",
                             largest_country = "DR Congo",
                             most_populous_country = "DR Congo",
                             name = "Middle Africa",
@@ -2272,8 +2261,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "eaf",
-                            label = "Eastern Africa",
                             largest_country = "Tanzania",
                             most_populous_country = "Ethiopia",
                             name = "Eastern Africa",
@@ -2294,8 +2281,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "saf",
-                            label = "Southern Africa",
                             largest_country = "South Africa",
                             most_populous_country = "South Africa",
                             name = "Southern Africa",
@@ -2316,8 +2301,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "ssa",
-                            label = "Sub-Saharan Africa",
                             largest_country = "Democratic Republic of the Congo",
                             most_populous_country = "Nigeria",
                             name = "Sub-Saharan Africa",
@@ -2338,8 +2321,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "cas",
-                            label = "Central Asia",
                             largest_country = "Kazakhstan",
                             most_populous_country = "Uzbekistan",
                             name = "Central Asia",
@@ -2360,8 +2341,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "was",
-                            label = "Western Asia",
                             largest_country = "Saudi Arabia",
                             most_populous_country = "Turkey",
                             name = "Western Asia",
@@ -2382,8 +2361,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "eas",
-                            label = "Eastern Asia",
                             largest_country = "China",
                             most_populous_country = "China",
                             name = "Eastern Asia",
@@ -2404,8 +2381,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "sea",
-                            label = "South-Eastern Asia",
                             largest_country = "Indonesia",
                             most_populous_country = "Indonesia",
                             name = "South-Eastern Asia",
@@ -2426,8 +2401,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "sas",
-                            label = "Southern Asia",
                             largest_country = "India",
                             most_populous_country = "India",
                             name = "Southern Asia",
@@ -2448,8 +2421,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "neu",
-                            label = "Northern Europe",
                             largest_country = "United Kingdom",
                             most_populous_country = "United Kingdom",
                             name = "Northern Europe",
@@ -2470,8 +2441,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "seu",
-                            label = "Southern Europe",
                             largest_country = "Spain",
                             most_populous_country = "Italy",
                             name = "Southern Europe",
@@ -2492,8 +2461,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "weu",
-                            label = "Western Europe",
                             largest_country = "France",
                             most_populous_country = "Germany",
                             name = "Western Europe",
@@ -2514,8 +2481,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "eeu",
-                            label = "Eastern Europe",
                             largest_country = "Russia",
                             most_populous_country = "Russia",
                             name = "Eastern Europe",
@@ -2536,8 +2501,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "nam",
-                            label = "Northern America",
                             largest_country = "Canada",
                             most_populous_country = "United States",
                             name = "Northern America",
@@ -2558,8 +2521,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "cam",
-                            label = "Central America",
                             largest_country = "Nicaragua",
                             most_populous_country = "Guatemala",
                             name = "Central America",
@@ -2580,8 +2541,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "car",
-                            label = "Caribbean",
                             largest_country = "Cuba",
                             most_populous_country = "Cuba",
                             name = "Caribbean",
@@ -2602,8 +2561,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "sam",
-                            label = "South America",
                             largest_country = "Brazil",
                             most_populous_country = "Brazil",
                             name = "South America",
@@ -2624,8 +2581,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "anz",
-                            label = "Australia and New Zealand",
                             largest_country = "Australia",
                             most_populous_country = "Australia",
                             name = "Australia and New Zealand",
@@ -2646,8 +2601,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "mel",
-                            label = "Melanesia",
                             largest_country = "Papua New Guinea",
                             most_populous_country = "Papua New Guinea",
                             name = "Melanesia",
@@ -2668,8 +2621,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "mic",
-                            label = "Micronesia",
                             largest_country = "Guam",
                             most_populous_country = "Guam",
                             name = "Micronesia",
@@ -2690,8 +2641,6 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "pol",
-                            label = "Polynesia",
                             largest_country = "Samoa",
                             most_populous_country = "Samoa",
                             name = "Polynesia",
@@ -2712,1587 +2661,12 @@ namespace WebWhatsAppClone.Migrations
                             is_active = true,
                             is_deleted = false,
                             is_updated = false,
-                            key = "ant",
-                            label = "Antarctica",
                             largest_country = "",
                             most_populous_country = "",
                             name = "Antarctica",
                             number_of_countries = 0,
                             population = 0L,
                             population_density = 0.0,
-                            smallest_country = ""
-                        });
-                });
-
-            modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.SubRegion", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<double>("area_km2")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset>("created_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("created_by")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset?>("deleted_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("deleted_by")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("geo_code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("is_active")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("is_deleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("is_updated")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("key")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("label")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("largest_country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("most_populous_country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("number_of_countries")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("population")
-                        .HasColumnType("bigint");
-
-                    b.Property<double?>("population_density")
-                        .HasColumnType("double precision");
-
-                    b.Property<Guid>("region_id")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("smallest_country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset?>("status_changed_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("status_changed_by")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset?>("updated_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("updated_by")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("region_id");
-
-                    b.ToTable("SubRegions");
-
-                    b.HasData(
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000001"),
-                            area_km2 = 4700000.0,
-                            code = "MAG",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Maghreb includes Morocco, Algeria, Tunisia, and Libya.",
-                            geo_code = "015-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "maghreb",
-                            label = "Maghreb",
-                            largest_country = "Algeria",
-                            most_populous_country = "Algeria",
-                            name = "Maghreb",
-                            number_of_countries = 4,
-                            population = 104000000L,
-                            population_density = 22.100000000000001,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Tunisia"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000002"),
-                            area_km2 = 2391800.0,
-                            code = "NIL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Nile Valley includes Egypt and Sudan.",
-                            geo_code = "015-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "nile_valley",
-                            label = "Nile Valley",
-                            largest_country = "Sudan",
-                            most_populous_country = "Egypt",
-                            name = "Nile Valley",
-                            number_of_countries = 2,
-                            population = 142000000L,
-                            population_density = 59.299999999999997,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Egypt"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000003"),
-                            area_km2 = 1750000.0,
-                            code = "UPG",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Upper Guinea includes Mali, Guinea, Guinea-Bissau, Sierra Leone, Liberia, and Côte d'Ivoire.",
-                            geo_code = "011-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "upper_guinea",
-                            label = "Upper Guinea",
-                            largest_country = "Mali",
-                            most_populous_country = "Guinea",
-                            name = "Upper Guinea",
-                            number_of_countries = 6,
-                            population = 86000000L,
-                            population_density = 49.100000000000001,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Guinea-Bissau"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000004"),
-                            area_km2 = 900000.0,
-                            code = "LOG",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Lower Guinea includes Nigeria, Ghana, Togo, and Benin.",
-                            geo_code = "011-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "lower_guinea",
-                            label = "Lower Guinea",
-                            largest_country = "Nigeria",
-                            most_populous_country = "Nigeria",
-                            name = "Lower Guinea",
-                            number_of_countries = 4,
-                            population = 97000000L,
-                            population_density = 107.8,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Benin"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000005"),
-                            area_km2 = 2460000.0,
-                            code = "SAH",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Sahel includes Niger, Burkina Faso, Chad, Mauritania, Senegal, and Gambia.",
-                            geo_code = "011-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "sahel",
-                            label = "Sahel",
-                            largest_country = "Niger",
-                            most_populous_country = "Burkina Faso",
-                            name = "Sahel",
-                            number_of_countries = 6,
-                            population = 65000000L,
-                            population_density = 26.399999999999999,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Gambia"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000006"),
-                            area_km2 = 3700000.0,
-                            code = "CGB",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Congo Basin includes DR Congo, Republic of the Congo, Central African Republic, Gabon, and Cameroon.",
-                            geo_code = "017-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "congo_basin",
-                            label = "Congo Basin",
-                            largest_country = "Democratic Republic of the Congo",
-                            most_populous_country = "Democratic Republic of the Congo",
-                            name = "Congo Basin",
-                            number_of_countries = 5,
-                            population = 120000000L,
-                            population_density = 32.399999999999999,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Central African Republic"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000007"),
-                            area_km2 = 2700000.0,
-                            code = "GGI",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Gulf of Guinea Interior includes Chad, Equatorial Guinea, Angola (northern), and parts of Cameroon.",
-                            geo_code = "017-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "gulf_guinea_interior",
-                            label = "Gulf of Guinea Interior",
-                            largest_country = "Chad",
-                            most_populous_country = "Cameroon",
-                            name = "Gulf of Guinea Interior",
-                            number_of_countries = 4,
-                            population = 48000000L,
-                            population_density = 17.800000000000001,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Equatorial Guinea"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000008"),
-                            area_km2 = 2000000.0,
-                            code = "HOA",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Horn of Africa includes Ethiopia, Somalia, Eritrea, and Djibouti.",
-                            geo_code = "014-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "hoa",
-                            label = "Horn of Africa",
-                            largest_country = "Ethiopia",
-                            most_populous_country = "Ethiopia",
-                            name = "Horn of Africa",
-                            number_of_countries = 4,
-                            population = 140000000L,
-                            population_density = 70.0,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000004"),
-                            smallest_country = "Djibouti"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000009"),
-                            area_km2 = 1500000.0,
-                            code = "GLR",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Great Lakes Region includes Kenya, Uganda, Tanzania, Rwanda, and Burundi.",
-                            geo_code = "014-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "glr",
-                            label = "Great Lakes Region",
-                            largest_country = "Tanzania",
-                            most_populous_country = "Tanzania",
-                            name = "Great Lakes Region",
-                            number_of_countries = 5,
-                            population = 120000000L,
-                            population_density = 80.200000000000003,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000004"),
-                            smallest_country = "Burundi"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000010"),
-                            area_km2 = 670000.0,
-                            code = "IOI",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Indian Ocean Islands include Madagascar, Comoros, Mauritius, Seychelles, and others.",
-                            geo_code = "014-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "ioi",
-                            label = "Indian Ocean Islands",
-                            largest_country = "Madagascar",
-                            most_populous_country = "Madagascar",
-                            name = "Indian Ocean Islands",
-                            number_of_countries = 7,
-                            population = 35000000L,
-                            population_density = 52.200000000000003,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000004"),
-                            smallest_country = "Seychelles"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000011"),
-                            area_km2 = 900000.0,
-                            code = "KAL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Kalahari Region covers parts of Botswana, Namibia, and South Africa.",
-                            geo_code = "018-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "kal",
-                            label = "Kalahari Region",
-                            largest_country = "Botswana",
-                            most_populous_country = "Botswana",
-                            name = "Kalahari Region",
-                            number_of_countries = 3,
-                            population = 2000000L,
-                            population_density = 2.2000000000000002,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000005"),
-                            smallest_country = "Namibia"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000012"),
-                            area_km2 = 300000.0,
-                            code = "HVL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Highveld is a high plateau region mainly in South Africa.",
-                            geo_code = "018-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "hvl",
-                            label = "Highveld",
-                            largest_country = "South Africa",
-                            most_populous_country = "South Africa",
-                            name = "Highveld",
-                            number_of_countries = 1,
-                            population = 15000000L,
-                            population_density = 50.0,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000005"),
-                            smallest_country = "South Africa"
-                        },
-                        new
-                        {
-                            id = new Guid("11000000-0000-0000-0000-000000000013"),
-                            area_km2 = 400000.0,
-                            code = "CAP",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Cape Region includes the Western and Eastern Cape provinces of South Africa.",
-                            geo_code = "018-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "cap",
-                            label = "Cape Region",
-                            largest_country = "South Africa",
-                            most_populous_country = "South Africa",
-                            name = "Cape Region",
-                            number_of_countries = 1,
-                            population = 6000000L,
-                            population_density = 15.0,
-                            region_id = new Guid("10000000-0000-0000-0000-000000000005"),
-                            smallest_country = "South Africa"
-                        },
-                        new
-                        {
-                            id = new Guid("21000000-0000-0000-0000-000000000001"),
-                            area_km2 = 1200000.0,
-                            code = "TRK",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Turkestan covers parts of Kazakhstan, Uzbekistan, and Turkmenistan.",
-                            geo_code = "143-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "trk",
-                            label = "Turkestan",
-                            largest_country = "Kazakhstan",
-                            most_populous_country = "Uzbekistan",
-                            name = "Turkestan",
-                            number_of_countries = 2,
-                            population = 25000000L,
-                            population_density = 20.800000000000001,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Turkmenistan"
-                        },
-                        new
-                        {
-                            id = new Guid("21000000-0000-0000-0000-000000000002"),
-                            area_km2 = 22000.0,
-                            code = "FRG",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Fergana Valley is a densely populated area spread across Uzbekistan, Kyrgyzstan, and Tajikistan.",
-                            geo_code = "143-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "frg",
-                            label = "Fergana Valley",
-                            largest_country = "Uzbekistan",
-                            most_populous_country = "Uzbekistan",
-                            name = "Fergana Valley",
-                            number_of_countries = 3,
-                            population = 15000000L,
-                            population_density = 681.79999999999995,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Kyrgyzstan"
-                        },
-                        new
-                        {
-                            id = new Guid("21000000-0000-0000-0000-000000000003"),
-                            area_km2 = 1800000.0,
-                            code = "KST",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Kazakh Steppe is a vast flatland that dominates northern Kazakhstan.",
-                            geo_code = "143-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "kst",
-                            label = "Kazakh Steppe",
-                            largest_country = "Kazakhstan",
-                            most_populous_country = "Kazakhstan",
-                            name = "Kazakh Steppe",
-                            number_of_countries = 1,
-                            population = 9000000L,
-                            population_density = 5.0,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Kazakhstan"
-                        },
-                        new
-                        {
-                            id = new Guid("22000000-0000-0000-0000-000000000001"),
-                            area_km2 = 500000.0,
-                            code = "LEV",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Levant covers Lebanon, Syria, Jordan, Palestine, and Israel.",
-                            geo_code = "145-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "lev",
-                            label = "Levant",
-                            largest_country = "Syria",
-                            most_populous_country = "Syria",
-                            name = "Levant",
-                            number_of_countries = 5,
-                            population = 72000000L,
-                            population_density = 144.0,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Palestine"
-                        },
-                        new
-                        {
-                            id = new Guid("22000000-0000-0000-0000-000000000002"),
-                            area_km2 = 3300000.0,
-                            code = "ARP",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Arabian Peninsula includes Saudi Arabia, Yemen, Oman, UAE, Qatar, Kuwait, Bahrain.",
-                            geo_code = "145-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "arp",
-                            label = "Arabian Peninsula",
-                            largest_country = "Saudi Arabia",
-                            most_populous_country = "Saudi Arabia",
-                            name = "Arabian Peninsula",
-                            number_of_countries = 7,
-                            population = 87000000L,
-                            population_density = 26.399999999999999,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Bahrain"
-                        },
-                        new
-                        {
-                            id = new Guid("22000000-0000-0000-0000-000000000003"),
-                            area_km2 = 440000.0,
-                            code = "CAC",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Caucasus includes Georgia, Armenia, and Azerbaijan.",
-                            geo_code = "145-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "cac",
-                            label = "Caucasus",
-                            largest_country = "Azerbaijan",
-                            most_populous_country = "Azerbaijan",
-                            name = "Caucasus",
-                            number_of_countries = 3,
-                            population = 18000000L,
-                            population_density = 40.899999999999999,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Armenia"
-                        },
-                        new
-                        {
-                            id = new Guid("22000000-0000-0000-0000-000000000004"),
-                            area_km2 = 900000.0,
-                            code = "MES",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Mesopotamia covers Iraq and parts of Syria.",
-                            geo_code = "145-4",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "mes",
-                            label = "Mesopotamia",
-                            largest_country = "Iraq",
-                            most_populous_country = "Iraq",
-                            name = "Mesopotamia",
-                            number_of_countries = 2,
-                            population = 45000000L,
-                            population_density = 50.0,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Syria"
-                        },
-                        new
-                        {
-                            id = new Guid("23000000-0000-0000-0000-000000000001"),
-                            area_km2 = 2000000.0,
-                            code = "ECH",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "East China includes densely populated and economically significant eastern provinces of China.",
-                            geo_code = "030-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "ech",
-                            label = "East China",
-                            largest_country = "China",
-                            most_populous_country = "China",
-                            name = "East China",
-                            number_of_countries = 1,
-                            population = 600000000L,
-                            population_density = 300.0,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000003"),
-                            smallest_country = "China"
-                        },
-                        new
-                        {
-                            id = new Guid("23000000-0000-0000-0000-000000000002"),
-                            area_km2 = 500000.0,
-                            code = "NEA",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Northeast Asia refers to the Korean Peninsula, comprising North and South Korea.",
-                            geo_code = "030-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "nea",
-                            label = "Northeast Asia",
-                            largest_country = "South Korea",
-                            most_populous_country = "South Korea",
-                            name = "Northeast Asia",
-                            number_of_countries = 2,
-                            population = 77000000L,
-                            population_density = 154.0,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000003"),
-                            smallest_country = "North Korea"
-                        },
-                        new
-                        {
-                            id = new Guid("23000000-0000-0000-0000-000000000003"),
-                            area_km2 = 800000.0,
-                            code = "MAN",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Manchuria is a historical region in Northeast China, includes Liaoning, Jilin, Heilongjiang.",
-                            geo_code = "030-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "man",
-                            label = "Manchuria",
-                            largest_country = "China",
-                            most_populous_country = "China",
-                            name = "Manchuria",
-                            number_of_countries = 1,
-                            population = 105000000L,
-                            population_density = 131.30000000000001,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000003"),
-                            smallest_country = "China"
-                        },
-                        new
-                        {
-                            id = new Guid("23000000-0000-0000-0000-000000000004"),
-                            area_km2 = 378000.0,
-                            code = "JAP",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Japanese Archipelago includes all major islands of Japan: Honshu, Hokkaido, Kyushu, Shikoku.",
-                            geo_code = "030-4",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "jap",
-                            label = "Japanese Archipelago",
-                            largest_country = "Japan",
-                            most_populous_country = "Japan",
-                            name = "Japanese Archipelago",
-                            number_of_countries = 1,
-                            population = 125000000L,
-                            population_density = 330.69999999999999,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Japan"
-                        },
-                        new
-                        {
-                            id = new Guid("24000000-0000-0000-0000-000000000001"),
-                            area_km2 = 2300000.0,
-                            code = "MSEA",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Includes Vietnam, Laos, Cambodia, Thailand, and Myanmar. Also known as Indochina.",
-                            geo_code = "035-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "msea",
-                            label = "Mainland Southeast Asia",
-                            largest_country = "Myanmar",
-                            most_populous_country = "Vietnam",
-                            name = "Mainland Southeast Asia (Indochina)",
-                            number_of_countries = 5,
-                            population = 250000000L,
-                            population_density = 108.7,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000004"),
-                            smallest_country = "Laos"
-                        },
-                        new
-                        {
-                            id = new Guid("24000000-0000-0000-0000-000000000002"),
-                            area_km2 = 2190000.0,
-                            code = "ISEA",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Includes Indonesia, Philippines, Malaysia, Singapore, and Brunei. Also known as Insular Southeast Asia.",
-                            geo_code = "035-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "isea",
-                            label = "Maritime Southeast Asia",
-                            largest_country = "Indonesia",
-                            most_populous_country = "Indonesia",
-                            name = "Maritime Southeast Asia (Insular)",
-                            number_of_countries = 5,
-                            population = 440000000L,
-                            population_density = 200.90000000000001,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000004"),
-                            smallest_country = "Brunei"
-                        },
-                        new
-                        {
-                            id = new Guid("25000000-0000-0000-0000-000000000001"),
-                            area_km2 = 4500000.0,
-                            code = "ISC",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Includes India, Pakistan, Bangladesh, Nepal, Bhutan, and surrounding areas.",
-                            geo_code = "034-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "isc",
-                            label = "Indian Subcontinent",
-                            largest_country = "India",
-                            most_populous_country = "India",
-                            name = "Indian Subcontinent",
-                            number_of_countries = 7,
-                            population = 1800000000L,
-                            population_density = 400.19999999999999,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000005"),
-                            smallest_country = "Bhutan"
-                        },
-                        new
-                        {
-                            id = new Guid("25000000-0000-0000-0000-000000000002"),
-                            area_km2 = 1000000.0,
-                            code = "IGP",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "A large and fertile plain encompassing northern India, parts of Pakistan, and Nepal.",
-                            geo_code = "034-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "igp",
-                            label = "Indo-Gangetic Plain",
-                            largest_country = "India",
-                            most_populous_country = "India",
-                            name = "Indo-Gangetic Plain",
-                            number_of_countries = 3,
-                            population = 700000000L,
-                            population_density = 700.0,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000005"),
-                            smallest_country = "Nepal"
-                        },
-                        new
-                        {
-                            id = new Guid("25000000-0000-0000-0000-000000000003"),
-                            area_km2 = 595000.0,
-                            code = "HIM",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Mountainous region including parts of India, Nepal, Bhutan, and China.",
-                            geo_code = "034-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "himalaya",
-                            label = "Himalayan Region",
-                            largest_country = "India",
-                            most_populous_country = "India",
-                            name = "Himalayan Region",
-                            number_of_countries = 4,
-                            population = 60000000L,
-                            population_density = 100.8,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000005"),
-                            smallest_country = "Bhutan"
-                        },
-                        new
-                        {
-                            id = new Guid("25000000-0000-0000-0000-000000000004"),
-                            area_km2 = 1500000.0,
-                            code = "DPL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "A large plateau in southern India, known for its dry and elevated terrain.",
-                            geo_code = "034-4",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "dp",
-                            label = "Deccan Plateau",
-                            largest_country = "India",
-                            most_populous_country = "India",
-                            name = "Deccan Plateau",
-                            number_of_countries = 1,
-                            population = 300000000L,
-                            population_density = 200.30000000000001,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000005"),
-                            smallest_country = "India"
-                        },
-                        new
-                        {
-                            id = new Guid("25000000-0000-0000-0000-000000000005"),
-                            area_km2 = 65610.0,
-                            code = "SLZ",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Island nation south of India. Distinct ecology and culture.",
-                            geo_code = "034-5",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "slz",
-                            label = "Sri Lankan Zone",
-                            largest_country = "Sri Lanka",
-                            most_populous_country = "Sri Lanka",
-                            name = "Sri Lankan Zone",
-                            number_of_countries = 1,
-                            population = 22000000L,
-                            population_density = 335.5,
-                            region_id = new Guid("20000000-0000-0000-0000-000000000005"),
-                            smallest_country = "Sri Lanka"
-                        },
-                        new
-                        {
-                            id = new Guid("30010000-0000-0000-0000-000000000001"),
-                            area_km2 = 1300000.0,
-                            code = "FNS",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Geological region comprising Norway, Sweden, Finland, and parts of Russia.",
-                            geo_code = "154-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "fns",
-                            label = "Fennoscandia",
-                            largest_country = "Sweden",
-                            most_populous_country = "Sweden",
-                            name = "Fennoscandia",
-                            number_of_countries = 3,
-                            population = 27000000L,
-                            population_density = 20.800000000000001,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Norway"
-                        },
-                        new
-                        {
-                            id = new Guid("30010000-0000-0000-0000-000000000002"),
-                            area_km2 = 315000.0,
-                            code = "BRI",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Group of islands including Great Britain, Ireland and surrounding isles.",
-                            geo_code = "154-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "bri",
-                            label = "British Isles",
-                            largest_country = "United Kingdom",
-                            most_populous_country = "United Kingdom",
-                            name = "British Isles",
-                            number_of_countries = 2,
-                            population = 70000000L,
-                            population_density = 222.19999999999999,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Ireland"
-                        },
-                        new
-                        {
-                            id = new Guid("30010000-0000-0000-0000-000000000003"),
-                            area_km2 = 175000.0,
-                            code = "BAL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Includes Estonia, Latvia, and Lithuania along the eastern Baltic Sea.",
-                            geo_code = "154-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "bal",
-                            label = "Baltic States",
-                            largest_country = "Lithuania",
-                            most_populous_country = "Lithuania",
-                            name = "Baltic States",
-                            number_of_countries = 3,
-                            population = 6000000L,
-                            population_density = 34.200000000000003,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Estonia"
-                        },
-                        new
-                        {
-                            id = new Guid("30020000-0000-0000-0000-000000000001"),
-                            area_km2 = 550000.0,
-                            code = "BALK",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Southeastern Europe including countries on the Balkan Peninsula.",
-                            geo_code = "039-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "balk",
-                            label = "Balkans",
-                            largest_country = "Romania",
-                            most_populous_country = "Romania",
-                            name = "Balkans",
-                            number_of_countries = 12,
-                            population = 55000000L,
-                            population_density = 100.0,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Montenegro"
-                        },
-                        new
-                        {
-                            id = new Guid("30020000-0000-0000-0000-000000000002"),
-                            area_km2 = 582000.0,
-                            code = "IBER",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Includes Spain, Portugal, and Andorra.",
-                            geo_code = "039-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "iber",
-                            label = "Iberian Peninsula",
-                            largest_country = "Spain",
-                            most_populous_country = "Spain",
-                            name = "Iberian Peninsula",
-                            number_of_countries = 3,
-                            population = 60000000L,
-                            population_density = 103.09999999999999,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Andorra"
-                        },
-                        new
-                        {
-                            id = new Guid("30020000-0000-0000-0000-000000000003"),
-                            area_km2 = 301000.0,
-                            code = "ITAL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Geographic region including Italy, San Marino and Vatican City.",
-                            geo_code = "039-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "ital",
-                            label = "Italian Peninsula",
-                            largest_country = "Italy",
-                            most_populous_country = "Italy",
-                            name = "Italian Peninsula",
-                            number_of_countries = 3,
-                            population = 60000000L,
-                            population_density = 199.30000000000001,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000002"),
-                            smallest_country = "San Marino"
-                        },
-                        new
-                        {
-                            id = new Guid("30030000-0000-0000-0000-000000000001"),
-                            area_km2 = 75000.0,
-                            code = "BNX",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Economic union of Belgium, Netherlands, and Luxembourg.",
-                            geo_code = "155-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "bnx",
-                            label = "Benelux",
-                            largest_country = "Belgium",
-                            most_populous_country = "Netherlands",
-                            name = "Benelux",
-                            number_of_countries = 3,
-                            population = 30000000L,
-                            population_density = 400.10000000000002,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Luxembourg"
-                        },
-                        new
-                        {
-                            id = new Guid("30030000-0000-0000-0000-000000000002"),
-                            area_km2 = 190000.0,
-                            code = "ALP",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Region around the Alps including Switzerland, Austria, and others.",
-                            geo_code = "155-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "alp",
-                            label = "Alpine Region",
-                            largest_country = "France",
-                            most_populous_country = "Switzerland",
-                            name = "Alpine Region",
-                            number_of_countries = 5,
-                            population = 15000000L,
-                            population_density = 78.900000000000006,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Liechtenstein"
-                        },
-                        new
-                        {
-                            id = new Guid("30040000-0000-0000-0000-000000000001"),
-                            area_km2 = 12500000.0,
-                            code = "ESL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Includes Russia, Ukraine, and Belarus - East Slavic speaking nations.",
-                            geo_code = "151-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "esl",
-                            label = "East Slavic",
-                            largest_country = "Russia",
-                            most_populous_country = "Russia",
-                            name = "East Slavic",
-                            number_of_countries = 3,
-                            population = 240000000L,
-                            population_density = 19.199999999999999,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000004"),
-                            smallest_country = "Belarus"
-                        },
-                        new
-                        {
-                            id = new Guid("30040000-0000-0000-0000-000000000002"),
-                            area_km2 = 370000.0,
-                            code = "CARP",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Region around the Carpathian Mountains: Slovakia, Romania, Ukraine, etc.",
-                            geo_code = "151-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "carp",
-                            label = "Carpathian Region",
-                            largest_country = "Poland",
-                            most_populous_country = "Poland",
-                            name = "Carpathian Region",
-                            number_of_countries = 5,
-                            population = 38000000L,
-                            population_density = 102.5,
-                            region_id = new Guid("30000000-0000-0000-0000-000000000004"),
-                            smallest_country = "Slovakia"
-                        },
-                        new
-                        {
-                            id = new Guid("40010000-0000-0000-0000-000000000001"),
-                            area_km2 = 19000000.0,
-                            code = "ANG",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "English-speaking part of North America: Canada and the United States.",
-                            geo_code = "021-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "ang",
-                            label = "Anglo-America",
-                            largest_country = "Canada",
-                            most_populous_country = "USA",
-                            name = "Anglo-America",
-                            number_of_countries = 2,
-                            population = 330000000L,
-                            population_density = 17.399999999999999,
-                            region_id = new Guid("40000000-0000-0000-0000-000000000001"),
-                            smallest_country = "USA"
-                        },
-                        new
-                        {
-                            id = new Guid("40010000-0000-0000-0000-000000000002"),
-                            area_km2 = 1500000.0,
-                            code = "FRA",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "French-speaking regions in North America, especially Quebec.",
-                            geo_code = "021-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "fra",
-                            label = "French America",
-                            largest_country = "Canada",
-                            most_populous_country = "Canada",
-                            name = "French America",
-                            number_of_countries = 1,
-                            population = 8000000L,
-                            population_density = 5.2999999999999998,
-                            region_id = new Guid("40000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Canada"
-                        },
-                        new
-                        {
-                            id = new Guid("40020000-0000-0000-0000-000000000001"),
-                            area_km2 = 523000.0,
-                            code = "IST",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Connects North and South America through countries like Panama and Costa Rica.",
-                            geo_code = "013-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "ist",
-                            label = "Isthmus Subregion",
-                            largest_country = "Nicaragua",
-                            most_populous_country = "Guatemala",
-                            name = "Isthmus Subregion",
-                            number_of_countries = 7,
-                            population = 180000000L,
-                            population_density = 343.0,
-                            region_id = new Guid("40000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Belize"
-                        },
-                        new
-                        {
-                            id = new Guid("40030000-0000-0000-0000-000000000001"),
-                            area_km2 = 207000.0,
-                            code = "GAI",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Main islands of the Caribbean including Cuba, Jamaica, Hispaniola, and Puerto Rico.",
-                            geo_code = "029-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "gai",
-                            label = "Greater Antilles",
-                            largest_country = "Cuba",
-                            most_populous_country = "Cuba",
-                            name = "Greater Antilles",
-                            number_of_countries = 5,
-                            population = 39000000L,
-                            population_density = 188.40000000000001,
-                            region_id = new Guid("40000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Jamaica"
-                        },
-                        new
-                        {
-                            id = new Guid("40030000-0000-0000-0000-000000000002"),
-                            area_km2 = 15000.0,
-                            code = "LAI",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Smaller islands including Grenada, Saint Lucia, Dominica, and others.",
-                            geo_code = "029-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "lai",
-                            label = "Lesser Antilles",
-                            largest_country = "Trinidad and Tobago",
-                            most_populous_country = "Trinidad and Tobago",
-                            name = "Lesser Antilles",
-                            number_of_countries = 9,
-                            population = 4000000L,
-                            population_density = 266.69999999999999,
-                            region_id = new Guid("40000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Saint Kitts and Nevis"
-                        },
-                        new
-                        {
-                            id = new Guid("40030000-0000-0000-0000-000000000003"),
-                            area_km2 = 10500.0,
-                            code = "LEE",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Northern islands of the Lesser Antilles.",
-                            geo_code = "029-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "lee",
-                            label = "Leeward Islands",
-                            largest_country = "Antigua and Barbuda",
-                            most_populous_country = "Antigua and Barbuda",
-                            name = "Leeward Islands",
-                            number_of_countries = 6,
-                            population = 1200000L,
-                            population_density = 114.3,
-                            region_id = new Guid("40000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Montserrat"
-                        },
-                        new
-                        {
-                            id = new Guid("40030000-0000-0000-0000-000000000004"),
-                            area_km2 = 12000.0,
-                            code = "WIN",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Southern islands of the Lesser Antilles.",
-                            geo_code = "029-4",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "win",
-                            label = "Windward Islands",
-                            largest_country = "Saint Lucia",
-                            most_populous_country = "Saint Lucia",
-                            name = "Windward Islands",
-                            number_of_countries = 5,
-                            population = 1800000L,
-                            population_density = 150.0,
-                            region_id = new Guid("40000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Grenada"
-                        },
-                        new
-                        {
-                            id = new Guid("50010000-0000-0000-0000-000000000001"),
-                            area_km2 = 4900000.0,
-                            code = "AND",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Countries along the Andes Mountains: Colombia, Ecuador, Peru, Bolivia, and Chile.",
-                            geo_code = "005-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "and",
-                            label = "Andean States",
-                            largest_country = "Peru",
-                            most_populous_country = "Colombia",
-                            name = "Andean States",
-                            number_of_countries = 5,
-                            population = 120000000L,
-                            population_density = 24.5,
-                            region_id = new Guid("50000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Ecuador"
-                        },
-                        new
-                        {
-                            id = new Guid("50010000-0000-0000-0000-000000000002"),
-                            area_km2 = 500000.0,
-                            code = "GUI",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Eastern coastal region of northern South America: Guyana, Suriname, French Guiana.",
-                            geo_code = "005-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "gui",
-                            label = "Guianas",
-                            largest_country = "Guyana",
-                            most_populous_country = "Guyana",
-                            name = "Guianas",
-                            number_of_countries = 3,
-                            population = 2000000L,
-                            population_density = 4.0,
-                            region_id = new Guid("50000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Suriname"
-                        },
-                        new
-                        {
-                            id = new Guid("50010000-0000-0000-0000-000000000003"),
-                            area_km2 = 7100000.0,
-                            code = "SOC",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Southernmost part of South America including Argentina, Chile, Paraguay, Uruguay.",
-                            geo_code = "005-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "soc",
-                            label = "Southern Cone",
-                            largest_country = "Argentina",
-                            most_populous_country = "Argentina",
-                            name = "Southern Cone",
-                            number_of_countries = 4,
-                            population = 190000000L,
-                            population_density = 26.699999999999999,
-                            region_id = new Guid("50000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Uruguay"
-                        },
-                        new
-                        {
-                            id = new Guid("50010000-0000-0000-0000-000000000004"),
-                            area_km2 = 5800000.0,
-                            code = "BHL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "A vast region of eastern, central and southern Brazil.",
-                            geo_code = "005-4",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "bhl",
-                            label = "Brazilian Highlands",
-                            largest_country = "Brazil",
-                            most_populous_country = "Brazil",
-                            name = "Brazilian Highlands",
-                            number_of_countries = 1,
-                            population = 120000000L,
-                            population_density = 20.699999999999999,
-                            region_id = new Guid("50000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Brazil"
-                        },
-                        new
-                        {
-                            id = new Guid("50010000-0000-0000-0000-000000000005"),
-                            area_km2 = 7000000.0,
-                            code = "AMB",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Tropical rainforest region covering much of northern South America.",
-                            geo_code = "005-5",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "amb",
-                            label = "Amazon Basin",
-                            largest_country = "Brazil",
-                            most_populous_country = "Brazil",
-                            name = "Amazon Basin",
-                            number_of_countries = 9,
-                            population = 34000000L,
-                            population_density = 4.7999999999999998,
-                            region_id = new Guid("50000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Ecuador"
-                        },
-                        new
-                        {
-                            id = new Guid("60010000-0000-0000-0000-000000000001"),
-                            area_km2 = 4000000.0,
-                            code = "EAUS",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Eastern part of Australia including major cities like Sydney and Brisbane.",
-                            geo_code = "053-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "eaus",
-                            label = "Eastern Australia",
-                            largest_country = "Australia",
-                            most_populous_country = "Australia",
-                            name = "Eastern Australia",
-                            number_of_countries = 1,
-                            population = 20000000L,
-                            population_density = 5.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Australia"
-                        },
-                        new
-                        {
-                            id = new Guid("60010000-0000-0000-0000-000000000002"),
-                            area_km2 = 2800000.0,
-                            code = "WAUS",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Western half of Australia with sparse population and large mining areas.",
-                            geo_code = "053-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "waus",
-                            label = "Western Australia",
-                            largest_country = "Australia",
-                            most_populous_country = "Australia",
-                            name = "Western Australia",
-                            number_of_countries = 1,
-                            population = 2700000L,
-                            population_density = 1.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000001"),
-                            smallest_country = "Australia"
-                        },
-                        new
-                        {
-                            id = new Guid("60010000-0000-0000-0000-000000000003"),
-                            area_km2 = 270000.0,
-                            code = "NZL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "North Island and South Island of New Zealand.",
-                            geo_code = "053-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "nzl",
-                            label = "New Zealand",
-                            largest_country = "New Zealand",
-                            most_populous_country = "New Zealand",
-                            name = "New Zealand",
-                            number_of_countries = 1,
-                            population = 5000000L,
-                            population_density = 18.5,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000001"),
-                            smallest_country = "New Zealand"
-                        },
-                        new
-                        {
-                            id = new Guid("60020000-0000-0000-0000-000000000001"),
-                            area_km2 = 50000.0,
-                            code = "BIS",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Group of islands northeast of Papua New Guinea.",
-                            geo_code = "054-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "bis",
-                            label = "Bismarck Archipelago",
-                            largest_country = "Papua New Guinea",
-                            most_populous_country = "Papua New Guinea",
-                            name = "Bismarck Archipelago",
-                            number_of_countries = 1,
-                            population = 1200000L,
-                            population_density = 24.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Papua New Guinea"
-                        },
-                        new
-                        {
-                            id = new Guid("60020000-0000-0000-0000-000000000002"),
-                            area_km2 = 28000.0,
-                            code = "SOL",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Arc-shaped chain of volcanic islands in Melanesia.",
-                            geo_code = "054-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "sol",
-                            label = "Solomon Islands Arc",
-                            largest_country = "Solomon Islands",
-                            most_populous_country = "Solomon Islands",
-                            name = "Solomon Islands Arc",
-                            number_of_countries = 1,
-                            population = 700000L,
-                            population_density = 25.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000002"),
-                            smallest_country = "Solomon Islands"
-                        },
-                        new
-                        {
-                            id = new Guid("60030000-0000-0000-0000-000000000001"),
-                            area_km2 = 1100.0,
-                            code = "CAR",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Group of small islands scattered across western Pacific.",
-                            geo_code = "057-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "car",
-                            label = "Caroline Islands",
-                            largest_country = "Federated States of Micronesia",
-                            most_populous_country = "FSM",
-                            name = "Caroline Islands",
-                            number_of_countries = 3,
-                            population = 500000L,
-                            population_density = 450.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Nauru"
-                        },
-                        new
-                        {
-                            id = new Guid("60030000-0000-0000-0000-000000000002"),
-                            area_km2 = 180.0,
-                            code = "MAR",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Low-lying islands and atolls in central Pacific Ocean.",
-                            geo_code = "057-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "mar",
-                            label = "Marshall Islands",
-                            largest_country = "Marshall Islands",
-                            most_populous_country = "Marshall Islands",
-                            name = "Marshall Islands",
-                            number_of_countries = 1,
-                            population = 60000L,
-                            population_density = 330.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Marshall Islands"
-                        },
-                        new
-                        {
-                            id = new Guid("60030000-0000-0000-0000-000000000003"),
-                            area_km2 = 1000.0,
-                            code = "MAI",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Volcanic archipelago in western Pacific Ocean.",
-                            geo_code = "057-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "mai",
-                            label = "Mariana Islands",
-                            largest_country = "Guam",
-                            most_populous_country = "Guam",
-                            name = "Mariana Islands",
-                            number_of_countries = 1,
-                            population = 200000L,
-                            population_density = 200.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000003"),
-                            smallest_country = "Northern Mariana Islands"
-                        },
-                        new
-                        {
-                            id = new Guid("60040000-0000-0000-0000-000000000001"),
-                            area_km2 = 3000.0,
-                            code = "SAM",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Island group in Polynesia split between independent Samoa and American Samoa.",
-                            geo_code = "061-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "sam",
-                            label = "Samoan Islands",
-                            largest_country = "Samoa",
-                            most_populous_country = "Samoa",
-                            name = "Samoan Islands",
-                            number_of_countries = 2,
-                            population = 250000L,
-                            population_density = 83.299999999999997,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000004"),
-                            smallest_country = "American Samoa"
-                        },
-                        new
-                        {
-                            id = new Guid("60040000-0000-0000-0000-000000000002"),
-                            area_km2 = 1600.0,
-                            code = "SOC",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Major island group in French Polynesia including Tahiti.",
-                            geo_code = "061-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "soc",
-                            label = "Society Islands",
-                            largest_country = "French Polynesia",
-                            most_populous_country = "French Polynesia",
-                            name = "Society Islands",
-                            number_of_countries = 1,
-                            population = 280000L,
-                            population_density = 175.0,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000004"),
-                            smallest_country = "French Polynesia"
-                        },
-                        new
-                        {
-                            id = new Guid("60040000-0000-0000-0000-000000000003"),
-                            area_km2 = 1050.0,
-                            code = "MARQ",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Isolated volcanic island group in northern French Polynesia.",
-                            geo_code = "061-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "marq",
-                            label = "Marquesas",
-                            largest_country = "French Polynesia",
-                            most_populous_country = "French Polynesia",
-                            name = "Marquesas",
-                            number_of_countries = 1,
-                            population = 9000L,
-                            population_density = 8.5999999999999996,
-                            region_id = new Guid("60000000-0000-0000-0000-000000000004"),
-                            smallest_country = "French Polynesia"
-                        },
-                        new
-                        {
-                            id = new Guid("70010000-0000-0000-0000-000000000001"),
-                            area_km2 = 10000000.0,
-                            code = "EANT",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "The eastern part of Antarctica, mostly covered by ice sheets.",
-                            geo_code = "010-1",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "east_ant",
-                            label = "East Antarctica",
-                            largest_country = "",
-                            most_populous_country = "",
-                            name = "East Antarctica",
-                            number_of_countries = 0,
-                            population = 0L,
-                            population_density = 0.0,
-                            region_id = new Guid("70000000-0000-0000-0000-000000000001"),
-                            smallest_country = ""
-                        },
-                        new
-                        {
-                            id = new Guid("70010000-0000-0000-0000-000000000002"),
-                            area_km2 = 4000000.0,
-                            code = "WANT",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "The western part of Antarctica, including the Transantarctic Mountains.",
-                            geo_code = "010-2",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "west_ant",
-                            label = "West Antarctica",
-                            largest_country = "",
-                            most_populous_country = "",
-                            name = "West Antarctica",
-                            number_of_countries = 0,
-                            population = 0L,
-                            population_density = 0.0,
-                            region_id = new Guid("70000000-0000-0000-0000-000000000001"),
-                            smallest_country = ""
-                        },
-                        new
-                        {
-                            id = new Guid("70010000-0000-0000-0000-000000000003"),
-                            area_km2 = 522000.0,
-                            code = "PANT",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "The northernmost part of mainland Antarctica, extending toward South America.",
-                            geo_code = "010-3",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            key = "pen_ant",
-                            label = "Antarctic Peninsula",
-                            largest_country = "",
-                            most_populous_country = "",
-                            name = "Antarctic Peninsula",
-                            number_of_countries = 0,
-                            population = 0L,
-                            population_density = 0.0,
-                            region_id = new Guid("70000000-0000-0000-0000-000000000001"),
                             smallest_country = ""
                         });
                 });
@@ -4330,17 +2704,6 @@ namespace WebWhatsAppClone.Migrations
                     b.Navigation("continent");
                 });
 
-            modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.SubRegion", b =>
-                {
-                    b.HasOne("WebWhatsAppClone.DataBase.Entities.Region", "region")
-                        .WithMany("sub_regions")
-                        .HasForeignKey("region_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("region");
-                });
-
             modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.Continent", b =>
                 {
                     b.Navigation("regions");
@@ -4354,11 +2717,6 @@ namespace WebWhatsAppClone.Migrations
             modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.FileFormat", b =>
                 {
                     b.Navigation("files");
-                });
-
-            modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.Region", b =>
-                {
-                    b.Navigation("sub_regions");
                 });
 #pragma warning restore 612, 618
         }

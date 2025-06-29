@@ -20,6 +20,7 @@ namespace WebWhatsAppClone.DataBase
         public DbSet<File> Files { get; set; }
         public DbSet<Continent> Continents { get; set; }
         public DbSet<Region> Regions { get; set; }
+        public DbSet<SubRegion> SubRegions { get; set; }
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var entity_entries = ChangeTracker.Entries<AuditableEntity<Guid, DateTimeOffset>>();

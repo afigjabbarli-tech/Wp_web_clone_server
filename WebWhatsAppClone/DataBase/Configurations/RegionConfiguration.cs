@@ -17,6 +17,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("10000000-0000-0000-0000-000000000001"),
+                    key = "naf",
+                    label = "Northern Africa",
                     name = "Northern Africa",
                     code = "NAF",
                     geo_code = "015",
@@ -34,6 +36,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("10000000-0000-0000-0000-000000000002"),
+                    key = "waf",
+                    label = "Western Africa",
                     name = "Western Africa",
                     code = "WAF",
                     geo_code = "011",
@@ -51,6 +55,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("10000000-0000-0000-0000-000000000003"),
+                    key = "maf",
+                    label = "Middle Africa",
                     name = "Middle Africa",
                     code = "MAF",
                     geo_code = "017",
@@ -68,6 +74,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("10000000-0000-0000-0000-000000000004"),
+                    key = "eaf",
+                    label = "Eastern Africa",
                     name = "Eastern Africa",
                     code = "EAF",
                     geo_code = "014",
@@ -85,6 +93,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("10000000-0000-0000-0000-000000000005"),
+                    key = "saf",
+                    label = "Southern Africa",
                     name = "Southern Africa",
                     code = "SAF",
                     geo_code = "018",
@@ -102,6 +112,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("10000000-0000-0000-0000-000000000006"),
+                    key = "ssa",
+                    label = "Sub-Saharan Africa",
                     name = "Sub-Saharan Africa",
                     code = "SSA",
                     geo_code = "202",
@@ -119,6 +131,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("20000000-0000-0000-0000-000000000001"),
+                    key = "cas",
+                    label = "Central Asia",
                     name = "Central Asia",
                     code = "CAS",
                     geo_code = "143",
@@ -136,6 +150,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("20000000-0000-0000-0000-000000000002"),
+                    key = "was",
+                    label = "Western Asia",
                     name = "Western Asia",
                     code = "WAS",
                     geo_code = "145",
@@ -153,6 +169,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("20000000-0000-0000-0000-000000000003"),
+                    key = "eas",
+                    label = "Eastern Asia",
                     name = "Eastern Asia",
                     code = "EAS",
                     geo_code = "030",
@@ -170,6 +188,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("20000000-0000-0000-0000-000000000004"),
+                    key = "sea",
+                    label = "South-Eastern Asia",
                     name = "South-Eastern Asia",
                     code = "SEA",
                     geo_code = "035",
@@ -187,6 +207,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("20000000-0000-0000-0000-000000000005"),
+                    key = "sas",
+                    label = "Southern Asia",
                     name = "Southern Asia",
                     code = "SAS",
                     geo_code = "034",
@@ -204,6 +226,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("30000000-0000-0000-0000-000000000001"),
+                    key = "neu",
+                    label = "Northern Europe",
                     name = "Northern Europe",
                     code = "NEU",
                     geo_code = "154",
@@ -221,6 +245,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("30000000-0000-0000-0000-000000000002"),
+                    key = "seu",
+                    label = "Southern Europe",
                     name = "Southern Europe",
                     code = "SEU",
                     geo_code = "039",
@@ -238,6 +264,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("30000000-0000-0000-0000-000000000003"),
+                    key = "weu",
+                    label = "Western Europe",
                     name = "Western Europe",
                     code = "WEU",
                     geo_code = "155",
@@ -255,6 +283,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("30000000-0000-0000-0000-000000000004"),
+                    key = "eeu",
+                    label = "Eastern Europe",
                     name = "Eastern Europe",
                     code = "EEU",
                     geo_code = "151",
@@ -269,26 +299,30 @@ namespace WebWhatsAppClone.DataBase.Configurations
                     continent_id = Guid.Parse("00000000-0000-0000-0000-000000000006"),
                     created_at = new DateTimeOffset(2025, 1, 30, 13, 45, 23, TimeSpan.Zero)
                 },
-                 new Region
-                 {
-                     id = Guid.Parse("40000000-0000-0000-0000-000000000001"),
-                     name = "Northern America",
-                     code = "NAM",
-                     geo_code = "021",
-                     area_km2 = 21000000,
-                     population = 370000000,
-                     number_of_countries = 3,
-                     largest_country = "Canada",
-                     smallest_country = "Saint Pierre and Miquelon",
-                     most_populous_country = "United States",
-                     population_density = 17.6,
-                     description = "Northern America region",
-                     continent_id = Guid.Parse("00000000-0000-0000-0000-000000000003"),
-                     created_at = new DateTimeOffset(2025, 1, 30, 13, 45, 23, TimeSpan.Zero)
-                 },
+                new Region
+                {
+                    id = Guid.Parse("40000000-0000-0000-0000-000000000001"),
+                    key = "nam",
+                    label = "Northern America",
+                    name = "Northern America",
+                    code = "NAM",
+                    geo_code = "021",
+                    area_km2 = 21000000,
+                    population = 370000000,
+                    number_of_countries = 3,
+                    largest_country = "Canada",
+                    smallest_country = "Saint Pierre and Miquelon",
+                    most_populous_country = "United States",
+                    population_density = 17.6,
+                    description = "Northern America region",
+                    continent_id = Guid.Parse("00000000-0000-0000-0000-000000000003"),
+                    created_at = new DateTimeOffset(2025, 1, 30, 13, 45, 23, TimeSpan.Zero)
+                },
                 new Region
                 {
                     id = Guid.Parse("40000000-0000-0000-0000-000000000002"),
+                    key = "cam",
+                    label = "Central America",
                     name = "Central America",
                     code = "CAM",
                     geo_code = "013",
@@ -306,6 +340,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("40000000-0000-0000-0000-000000000003"),
+                    key = "car",
+                    label = "Caribbean",
                     name = "Caribbean",
                     code = "CAR",
                     geo_code = "029",
@@ -323,6 +359,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("50000000-0000-0000-0000-000000000001"),
+                    key = "sam",
+                    label = "South America",
                     name = "South America",
                     code = "SAM",
                     geo_code = "005",
@@ -340,6 +378,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("60000000-0000-0000-0000-000000000001"),
+                    key = "anz",
+                    label = "Australia and New Zealand",
                     name = "Australia and New Zealand",
                     code = "ANZ",
                     geo_code = "053",
@@ -357,6 +397,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("60000000-0000-0000-0000-000000000002"),
+                    key = "mel",
+                    label = "Melanesia",
                     name = "Melanesia",
                     code = "MEL",
                     geo_code = "054",
@@ -374,6 +416,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("60000000-0000-0000-0000-000000000003"),
+                    key = "mic",
+                    label = "Micronesia",
                     name = "Micronesia",
                     code = "MIC",
                     geo_code = "057",
@@ -391,6 +435,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("60000000-0000-0000-0000-000000000004"),
+                    key = "pol",
+                    label = "Polynesia",
                     name = "Polynesia",
                     code = "POL",
                     geo_code = "061",
@@ -408,6 +454,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Region
                 {
                     id = Guid.Parse("70000000-0000-0000-0000-000000000001"),
+                    key = "ant",
+                    label = "Antarctica",
                     name = "Antarctica",
                     code = "ANT",
                     geo_code = "010",

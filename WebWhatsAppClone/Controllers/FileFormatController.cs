@@ -302,7 +302,7 @@ namespace WebWhatsAppClone.Controllers
             {
                 var founded_item = await _data_context.FileFormats
                     .SingleOrDefaultAsync((file_format) => file_format.id == id);
-                if(founded_item == null)
+                if (founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;

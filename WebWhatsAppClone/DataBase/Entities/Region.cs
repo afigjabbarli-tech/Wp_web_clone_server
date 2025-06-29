@@ -4,6 +4,8 @@ namespace WebWhatsAppClone.DataBase.Entities
 {
     public class Region : AuditableEntity<Guid, DateTimeOffset>
     {
+        public string key { get; set; } = string.Empty;
+        public string label { get; set; } = string.Empty;
         public string name { get; set; } = string.Empty;                  
         public string code { get; set; } = string.Empty;
         public string geo_code { get; set; } = string.Empty;      
@@ -17,5 +19,6 @@ namespace WebWhatsAppClone.DataBase.Entities
         public string description { get; set; } = string.Empty;     
         public Continent continent { get; set; }
         public Guid continent_id { get; set; }
+        public ICollection<SubRegion> sub_regions { get; set; }
     }
 }

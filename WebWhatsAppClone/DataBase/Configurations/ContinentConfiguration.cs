@@ -12,6 +12,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Continent
                 {
                     id = Guid.Parse("00000000-0000-0000-0000-000000000001"),
+                    key = "as",
+                    label = "Asia",
                     name = "Asia",
                     code = "AS",
                     un_code = "142",
@@ -28,6 +30,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Continent
                 {
                     id = Guid.Parse("00000000-0000-0000-0000-000000000002"),
+                    key = "af",
+                    label = "Africa",
                     name = "Africa",
                     code = "AF",
                     un_code = "002",
@@ -44,6 +48,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Continent
                 {
                     id = Guid.Parse("00000000-0000-0000-0000-000000000003"),
+                    key = "na",
+                    label = "North America",
                     name = "North America",
                     code = "NA",
                     un_code = "019",
@@ -60,6 +66,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Continent
                 {
                     id = Guid.Parse("00000000-0000-0000-0000-000000000004"),
+                    key = "sa",
+                    label = "South America",
                     name = "South America",
                     code = "SA",
                     un_code = "005",
@@ -76,6 +84,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Continent
                 {
                     id = Guid.Parse("00000000-0000-0000-0000-000000000005"),
+                    key = "an",
+                    label = "Antarctica",
                     name = "Antarctica",
                     code = "AN",
                     un_code = "010",
@@ -92,6 +102,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Continent
                 {
                     id = Guid.Parse("00000000-0000-0000-0000-000000000006"),
+                    key = "eu",
+                    label = "Europe",
                     name = "Europe",
                     code = "EU",
                     un_code = "150",
@@ -108,6 +120,8 @@ namespace WebWhatsAppClone.DataBase.Configurations
                 new Continent
                 {
                     id = Guid.Parse("00000000-0000-0000-0000-000000000007"),
+                    key = "oc",
+                    label = "Australia",
                     name = "Australia",
                     code = "OC",
                     un_code = "009",
