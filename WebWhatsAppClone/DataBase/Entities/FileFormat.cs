@@ -14,5 +14,6 @@ namespace WebWhatsAppClone.DataBase.Entities
         public bool is_deprecated { get; set; } = false;
         public FileCategory file_category { get; set; }
         public Guid file_category_id { get; set; }
+        public ICollection<File> files { get; set; }
     }
 }

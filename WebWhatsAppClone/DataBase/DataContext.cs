@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using WebWhatsAppClone.DataBase.Base;
+using File = WebWhatsAppClone.DataBase.Entities.File;
 using WebWhatsAppClone.DataBase.Entities;
 
 namespace WebWhatsAppClone.DataBase
@@ -16,6 +17,9 @@ namespace WebWhatsAppClone.DataBase
         }
         public DbSet<FileCategory> FileCategories { get; set; }
         public DbSet<FileFormat> FileFormats { get; set; }
+        public DbSet<File> Files { get; set; }
+        public DbSet<Continent> Continents { get; set; }
+        public DbSet<Region> Regions { get; set; }
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var entity_entries = ChangeTracker.Entries<AuditableEntity<Guid, DateTimeOffset>>();

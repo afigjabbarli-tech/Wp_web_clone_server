@@ -36,7 +36,7 @@ namespace WebWhatsAppClone
 
                 ob.UseNpgsql(connectionString);
             })
-            .AddScoped<IFileStorageService, FileStorageService>()
+            .AddScoped<IFileManagementService, FileManagementService>()
             .AddSingleton<ReflectionHelper>();
 
             builder.Services.Configure<ApiBehaviorOptions>((c) =>

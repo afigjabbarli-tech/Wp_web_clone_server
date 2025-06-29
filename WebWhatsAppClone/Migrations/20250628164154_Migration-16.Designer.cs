@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebWhatsAppClone.DataBase;
@@ -11,9 +12,11 @@ using WebWhatsAppClone.DataBase;
 namespace WebWhatsAppClone.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250628164154_Migration-16")]
+    partial class Migration16
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,12 +31,8 @@ namespace WebWhatsAppClone.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<double>("area_km2")
+                    b.Property<double?>("area_km2")
                         .HasColumnType("double precision");
-
-                    b.Property<string>("code")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<DateTimeOffset>("created_at")
                         .HasColumnType("timestamp with time zone");
@@ -72,14 +71,11 @@ namespace WebWhatsAppClone.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("number_of_countries")
+                    b.Property<int?>("number_of_countries")
                         .HasColumnType("integer");
 
-                    b.Property<long>("population")
+                    b.Property<long?>("population")
                         .HasColumnType("bigint");
-
-                    b.Property<double?>("population_density")
-                        .HasColumnType("double precision");
 
                     b.Property<string>("smallest_country")
                         .IsRequired()
@@ -90,10 +86,6 @@ namespace WebWhatsAppClone.Migrations
 
                     b.Property<Guid?>("status_changed_by")
                         .HasColumnType("uuid");
-
-                    b.Property<string>("un_code")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<DateTimeOffset?>("updated_at")
                         .HasColumnType("timestamp with time zone");
@@ -108,9 +100,8 @@ namespace WebWhatsAppClone.Migrations
                     b.HasData(
                         new
                         {
-                            id = new Guid("00000000-0000-0000-0000-000000000001"),
+                            id = new Guid("10000000-0000-0000-0000-000000000001"),
                             area_km2 = 44579000.0,
-                            code = "AS",
                             created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             description = "Asia is the largest continent, both in area and population.",
                             is_active = true,
@@ -121,15 +112,12 @@ namespace WebWhatsAppClone.Migrations
                             name = "Asia",
                             number_of_countries = 49,
                             population = 4600000000L,
-                            population_density = 150.0,
-                            smallest_country = "Maldives",
-                            un_code = "142"
+                            smallest_country = "Maldives"
                         },
                         new
                         {
-                            id = new Guid("00000000-0000-0000-0000-000000000002"),
+                            id = new Guid("10000000-0000-0000-0000-000000000002"),
                             area_km2 = 30370000.0,
-                            code = "AF",
                             created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             description = "Africa is known for its vast natural resources and cultural diversity.",
                             is_active = true,
@@ -140,15 +128,12 @@ namespace WebWhatsAppClone.Migrations
                             name = "Africa",
                             number_of_countries = 54,
                             population = 1400000000L,
-                            population_density = 45.0,
-                            smallest_country = "Seychelles",
-                            un_code = "002"
+                            smallest_country = "Seychelles"
                         },
                         new
                         {
-                            id = new Guid("00000000-0000-0000-0000-000000000003"),
+                            id = new Guid("10000000-0000-0000-0000-000000000003"),
                             area_km2 = 24709000.0,
-                            code = "NA",
                             created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             description = "North America includes major economies like the United States, Canada, and Mexico.",
                             is_active = true,
@@ -159,15 +144,12 @@ namespace WebWhatsAppClone.Migrations
                             name = "North America",
                             number_of_countries = 23,
                             population = 600000000L,
-                            population_density = 22.0,
-                            smallest_country = "Saint Kitts and Nevis",
-                            un_code = "019"
+                            smallest_country = "Saint Kitts and Nevis"
                         },
                         new
                         {
-                            id = new Guid("00000000-0000-0000-0000-000000000004"),
+                            id = new Guid("10000000-0000-0000-0000-000000000004"),
                             area_km2 = 17840000.0,
-                            code = "SA",
                             created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             description = "South America is known for the Amazon rainforest and Andes mountains.",
                             is_active = true,
@@ -178,15 +160,12 @@ namespace WebWhatsAppClone.Migrations
                             name = "South America",
                             number_of_countries = 12,
                             population = 430000000L,
-                            population_density = 25.0,
-                            smallest_country = "Suriname",
-                            un_code = "005"
+                            smallest_country = "Suriname"
                         },
                         new
                         {
-                            id = new Guid("00000000-0000-0000-0000-000000000005"),
+                            id = new Guid("10000000-0000-0000-0000-000000000005"),
                             area_km2 = 14000000.0,
-                            code = "AN",
                             created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             description = "Antarctica is a frozen continent with no permanent population, mainly used for scientific research.",
                             is_active = true,
@@ -197,15 +176,12 @@ namespace WebWhatsAppClone.Migrations
                             name = "Antarctica",
                             number_of_countries = 0,
                             population = 0L,
-                            population_density = 0.0,
-                            smallest_country = "",
-                            un_code = "010"
+                            smallest_country = ""
                         },
                         new
                         {
-                            id = new Guid("00000000-0000-0000-0000-000000000006"),
+                            id = new Guid("10000000-0000-0000-0000-000000000006"),
                             area_km2 = 10180000.0,
-                            code = "EU",
                             created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             description = "Europe has a rich cultural history and is home to the European Union.",
                             is_active = true,
@@ -216,15 +192,12 @@ namespace WebWhatsAppClone.Migrations
                             name = "Europe",
                             number_of_countries = 44,
                             population = 750000000L,
-                            population_density = 72.0,
-                            smallest_country = "Vatican City",
-                            un_code = "150"
+                            smallest_country = "Vatican City"
                         },
                         new
                         {
-                            id = new Guid("00000000-0000-0000-0000-000000000007"),
+                            id = new Guid("10000000-0000-0000-0000-000000000007"),
                             area_km2 = 8600000.0,
-                            code = "OC",
                             created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             description = "Australia (Oceania) consists of the Australian mainland and many Pacific island nations.",
                             is_active = true,
@@ -235,9 +208,7 @@ namespace WebWhatsAppClone.Migrations
                             name = "Australia",
                             number_of_countries = 14,
                             population = 42000000L,
-                            population_density = 5.0,
-                            smallest_country = "Nauru",
-                            un_code = "009"
+                            smallest_country = "Nauru"
                         });
                 });
 
@@ -2075,577 +2046,6 @@ namespace WebWhatsAppClone.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.Region", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<double>("area_km2")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("continent_id")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset>("created_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("created_by")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset?>("deleted_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("deleted_by")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("geo_code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("is_active")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("is_deleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("is_updated")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("largest_country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("most_populous_country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("number_of_countries")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("population")
-                        .HasColumnType("bigint");
-
-                    b.Property<double?>("population_density")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("smallest_country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset?>("status_changed_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("status_changed_by")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset?>("updated_at")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("updated_by")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("continent_id");
-
-                    b.ToTable("Regions");
-
-                    b.HasData(
-                        new
-                        {
-                            id = new Guid("10000000-0000-0000-0000-000000000001"),
-                            area_km2 = 7091800.0,
-                            code = "NAF",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000002"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Northern Africa region",
-                            geo_code = "015",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Algeria",
-                            most_populous_country = "Egypt",
-                            name = "Northern Africa",
-                            number_of_countries = 7,
-                            population = 246000000L,
-                            population_density = 30.5,
-                            smallest_country = "Tunisia"
-                        },
-                        new
-                        {
-                            id = new Guid("10000000-0000-0000-0000-000000000002"),
-                            area_km2 = 5110000.0,
-                            code = "WAF",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000002"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Western Africa region",
-                            geo_code = "011",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Niger",
-                            most_populous_country = "Nigeria",
-                            name = "Western Africa",
-                            number_of_countries = 16,
-                            population = 422000000L,
-                            population_density = 82.599999999999994,
-                            smallest_country = "Gambia"
-                        },
-                        new
-                        {
-                            id = new Guid("10000000-0000-0000-0000-000000000003"),
-                            area_km2 = 6400000.0,
-                            code = "MAF",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000002"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Middle Africa (Central Africa)",
-                            geo_code = "017",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "DR Congo",
-                            most_populous_country = "DR Congo",
-                            name = "Middle Africa",
-                            number_of_countries = 9,
-                            population = 168000000L,
-                            population_density = 26.300000000000001,
-                            smallest_country = "Equatorial Guinea"
-                        },
-                        new
-                        {
-                            id = new Guid("10000000-0000-0000-0000-000000000004"),
-                            area_km2 = 6210000.0,
-                            code = "EAF",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000002"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Eastern Africa region",
-                            geo_code = "014",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Tanzania",
-                            most_populous_country = "Ethiopia",
-                            name = "Eastern Africa",
-                            number_of_countries = 18,
-                            population = 445000000L,
-                            population_density = 71.599999999999994,
-                            smallest_country = "Djibouti"
-                        },
-                        new
-                        {
-                            id = new Guid("10000000-0000-0000-0000-000000000005"),
-                            area_km2 = 2675000.0,
-                            code = "SAF",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000002"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Southern Africa region",
-                            geo_code = "018",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "South Africa",
-                            most_populous_country = "South Africa",
-                            name = "Southern Africa",
-                            number_of_countries = 5,
-                            population = 69000000L,
-                            population_density = 25.800000000000001,
-                            smallest_country = "Eswatini"
-                        },
-                        new
-                        {
-                            id = new Guid("10000000-0000-0000-0000-000000000006"),
-                            area_km2 = 23278000.0,
-                            code = "SSA",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000002"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Sub-Saharan Africa (composite region)",
-                            geo_code = "202",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Democratic Republic of the Congo",
-                            most_populous_country = "Nigeria",
-                            name = "Sub-Saharan Africa",
-                            number_of_countries = 47,
-                            population = 1154000000L,
-                            population_density = 49.600000000000001,
-                            smallest_country = "São Tomé and Príncipe"
-                        },
-                        new
-                        {
-                            id = new Guid("20000000-0000-0000-0000-000000000001"),
-                            area_km2 = 4000000.0,
-                            code = "CAS",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Central Asia region",
-                            geo_code = "143",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Kazakhstan",
-                            most_populous_country = "Uzbekistan",
-                            name = "Central Asia",
-                            number_of_countries = 5,
-                            population = 75000000L,
-                            population_density = 18.800000000000001,
-                            smallest_country = "Tajikistan"
-                        },
-                        new
-                        {
-                            id = new Guid("20000000-0000-0000-0000-000000000002"),
-                            area_km2 = 6720000.0,
-                            code = "WAS",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Western Asia region (Middle East)",
-                            geo_code = "145",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Saudi Arabia",
-                            most_populous_country = "Turkey",
-                            name = "Western Asia",
-                            number_of_countries = 12,
-                            population = 280000000L,
-                            population_density = 41.700000000000003,
-                            smallest_country = "Bahrain"
-                        },
-                        new
-                        {
-                            id = new Guid("20000000-0000-0000-0000-000000000003"),
-                            area_km2 = 11600000.0,
-                            code = "EAS",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Eastern Asia region",
-                            geo_code = "030",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "China",
-                            most_populous_country = "China",
-                            name = "Eastern Asia",
-                            number_of_countries = 6,
-                            population = 1600000000L,
-                            population_density = 137.90000000000001,
-                            smallest_country = "Macau"
-                        },
-                        new
-                        {
-                            id = new Guid("20000000-0000-0000-0000-000000000004"),
-                            area_km2 = 4490000.0,
-                            code = "SEA",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "South-Eastern Asia region",
-                            geo_code = "035",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Indonesia",
-                            most_populous_country = "Indonesia",
-                            name = "South-Eastern Asia",
-                            number_of_countries = 11,
-                            population = 690000000L,
-                            population_density = 153.69999999999999,
-                            smallest_country = "Brunei"
-                        },
-                        new
-                        {
-                            id = new Guid("20000000-0000-0000-0000-000000000005"),
-                            area_km2 = 5040000.0,
-                            code = "SAS",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Southern Asia region",
-                            geo_code = "034",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "India",
-                            most_populous_country = "India",
-                            name = "Southern Asia",
-                            number_of_countries = 8,
-                            population = 1900000000L,
-                            population_density = 374.10000000000002,
-                            smallest_country = "Bhutan"
-                        },
-                        new
-                        {
-                            id = new Guid("30000000-0000-0000-0000-000000000001"),
-                            area_km2 = 1300000.0,
-                            code = "NEU",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000006"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Northern Europe region",
-                            geo_code = "154",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "United Kingdom",
-                            most_populous_country = "United Kingdom",
-                            name = "Northern Europe",
-                            number_of_countries = 10,
-                            population = 106000000L,
-                            population_density = 81.5,
-                            smallest_country = "Iceland"
-                        },
-                        new
-                        {
-                            id = new Guid("30000000-0000-0000-0000-000000000002"),
-                            area_km2 = 1300000.0,
-                            code = "SEU",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000006"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Southern Europe region",
-                            geo_code = "039",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Spain",
-                            most_populous_country = "Italy",
-                            name = "Southern Europe",
-                            number_of_countries = 15,
-                            population = 152000000L,
-                            population_density = 117.0,
-                            smallest_country = "San Marino"
-                        },
-                        new
-                        {
-                            id = new Guid("30000000-0000-0000-0000-000000000003"),
-                            area_km2 = 1000000.0,
-                            code = "WEU",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000006"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Western Europe region",
-                            geo_code = "155",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "France",
-                            most_populous_country = "Germany",
-                            name = "Western Europe",
-                            number_of_countries = 9,
-                            population = 196000000L,
-                            population_density = 196.0,
-                            smallest_country = "Luxembourg"
-                        },
-                        new
-                        {
-                            id = new Guid("30000000-0000-0000-0000-000000000004"),
-                            area_km2 = 1800000.0,
-                            code = "EEU",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000006"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Eastern Europe region",
-                            geo_code = "151",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Russia",
-                            most_populous_country = "Russia",
-                            name = "Eastern Europe",
-                            number_of_countries = 10,
-                            population = 293000000L,
-                            population_density = 23.699999999999999,
-                            smallest_country = "Moldova"
-                        },
-                        new
-                        {
-                            id = new Guid("40000000-0000-0000-0000-000000000001"),
-                            area_km2 = 21000000.0,
-                            code = "NAM",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000003"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Northern America region",
-                            geo_code = "021",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Canada",
-                            most_populous_country = "United States",
-                            name = "Northern America",
-                            number_of_countries = 3,
-                            population = 370000000L,
-                            population_density = 17.600000000000001,
-                            smallest_country = "Saint Pierre and Miquelon"
-                        },
-                        new
-                        {
-                            id = new Guid("40000000-0000-0000-0000-000000000002"),
-                            area_km2 = 524000.0,
-                            code = "CAM",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000003"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Central America region",
-                            geo_code = "013",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Nicaragua",
-                            most_populous_country = "Guatemala",
-                            name = "Central America",
-                            number_of_countries = 7,
-                            population = 180000000L,
-                            population_density = 343.0,
-                            smallest_country = "Belize"
-                        },
-                        new
-                        {
-                            id = new Guid("40000000-0000-0000-0000-000000000003"),
-                            area_km2 = 275400.0,
-                            code = "CAR",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000003"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Caribbean region",
-                            geo_code = "029",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Cuba",
-                            most_populous_country = "Cuba",
-                            name = "Caribbean",
-                            number_of_countries = 13,
-                            population = 44000000L,
-                            population_density = 159.59999999999999,
-                            smallest_country = "Saint Kitts and Nevis"
-                        },
-                        new
-                        {
-                            id = new Guid("50000000-0000-0000-0000-000000000001"),
-                            area_km2 = 17840000.0,
-                            code = "SAM",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000004"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "South America region",
-                            geo_code = "005",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Brazil",
-                            most_populous_country = "Brazil",
-                            name = "South America",
-                            number_of_countries = 12,
-                            population = 430000000L,
-                            population_density = 24.100000000000001,
-                            smallest_country = "Suriname"
-                        },
-                        new
-                        {
-                            id = new Guid("60000000-0000-0000-0000-000000000001"),
-                            area_km2 = 8800000.0,
-                            code = "ANZ",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000007"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Australia and New Zealand region",
-                            geo_code = "053",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Australia",
-                            most_populous_country = "Australia",
-                            name = "Australia and New Zealand",
-                            number_of_countries = 2,
-                            population = 30000000L,
-                            population_density = 3.3999999999999999,
-                            smallest_country = "New Zealand"
-                        },
-                        new
-                        {
-                            id = new Guid("60000000-0000-0000-0000-000000000002"),
-                            area_km2 = 450000.0,
-                            code = "MEL",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000007"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Melanesia region",
-                            geo_code = "054",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Papua New Guinea",
-                            most_populous_country = "Papua New Guinea",
-                            name = "Melanesia",
-                            number_of_countries = 4,
-                            population = 12000000L,
-                            population_density = 26.699999999999999,
-                            smallest_country = "Nauru"
-                        },
-                        new
-                        {
-                            id = new Guid("60000000-0000-0000-0000-000000000003"),
-                            area_km2 = 27000.0,
-                            code = "MIC",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000007"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Micronesia region",
-                            geo_code = "057",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Guam",
-                            most_populous_country = "Guam",
-                            name = "Micronesia",
-                            number_of_countries = 7,
-                            population = 500000L,
-                            population_density = 18.5,
-                            smallest_country = "Nauru"
-                        },
-                        new
-                        {
-                            id = new Guid("60000000-0000-0000-0000-000000000004"),
-                            area_km2 = 4500000.0,
-                            code = "POL",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000007"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Polynesia region",
-                            geo_code = "061",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "Samoa",
-                            most_populous_country = "Samoa",
-                            name = "Polynesia",
-                            number_of_countries = 14,
-                            population = 1000000L,
-                            population_density = 0.22,
-                            smallest_country = "Tokelau"
-                        },
-                        new
-                        {
-                            id = new Guid("70000000-0000-0000-0000-000000000001"),
-                            area_km2 = 14000000.0,
-                            code = "ANT",
-                            continent_id = new Guid("00000000-0000-0000-0000-000000000005"),
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            description = "Antarctica is a frozen continent with no permanent population.",
-                            geo_code = "010",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            largest_country = "",
-                            most_populous_country = "",
-                            name = "Antarctica",
-                            number_of_countries = 0,
-                            population = 0L,
-                            population_density = 0.0,
-                            smallest_country = ""
-                        });
-                });
-
             modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.File", b =>
                 {
                     b.HasOne("WebWhatsAppClone.DataBase.Entities.FileFormat", "file_format")
@@ -2666,22 +2066,6 @@ namespace WebWhatsAppClone.Migrations
                         .IsRequired();
 
                     b.Navigation("file_category");
-                });
-
-            modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.Region", b =>
-                {
-                    b.HasOne("WebWhatsAppClone.DataBase.Entities.Continent", "continent")
-                        .WithMany("regions")
-                        .HasForeignKey("continent_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("continent");
-                });
-
-            modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.Continent", b =>
-                {
-                    b.Navigation("regions");
                 });
 
             modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.FileCategory", b =>

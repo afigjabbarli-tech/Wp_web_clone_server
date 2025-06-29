@@ -1,0 +1,21 @@
+﻿using WebWhatsAppClone.DataBase.Base;
+
+namespace WebWhatsAppClone.DataBase.Entities
+{
+    public class Region : AuditableEntity<Guid, DateTimeOffset>
+    {
+        public string name { get; set; } = string.Empty;                  
+        public string code { get; set; } = string.Empty;
+        public string geo_code { get; set; } = string.Empty;      
+        public double area_km2 { get; set; }                           
+        public long population { get; set; }                          
+        public int number_of_countries { get; set; }                    
+        public string largest_country { get; set; } = string.Empty;       
+        public string smallest_country { get; set; } = string.Empty;   
+        public string most_populous_country { get; set; } = string.Empty;
+        public double? population_density { get; set; }                  
+        public string description { get; set; } = string.Empty;     
+        public Continent continent { get; set; }
+        public Guid continent_id { get; set; }
+    }
+}
