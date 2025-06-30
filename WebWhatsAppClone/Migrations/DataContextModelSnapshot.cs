@@ -403,7 +403,7 @@ namespace WebWhatsAppClone.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("FileCategories");
+                    b.ToTable("FileCategories", (string)null);
 
                     b.HasData(
                         new
@@ -664,7 +664,7 @@ namespace WebWhatsAppClone.Migrations
 
                     b.HasIndex("file_category_id");
 
-                    b.ToTable("FileFormats");
+                    b.ToTable("FileFormats", (string)null);
 
                     b.HasData(
                         new
