@@ -111,7 +111,7 @@ namespace WebWhatsAppClone.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Continents");
+                    b.ToTable("Continents", (string)null);
 
                     b.HasData(
                         new
@@ -343,7 +343,7 @@ namespace WebWhatsAppClone.Migrations
 
                     b.HasIndex("file_format_id");
 
-                    b.ToTable("Files");
+                    b.ToTable("Files", (string)null);
                 });
 
             modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.FileCategory", b =>
@@ -2191,7 +2191,7 @@ namespace WebWhatsAppClone.Migrations
 
                     b.HasIndex("continent_id");
 
-                    b.ToTable("Regions");
+                    b.ToTable("Regions", (string)null);
 
                     b.HasData(
                         new
@@ -2818,7 +2818,7 @@ namespace WebWhatsAppClone.Migrations
 
                     b.HasIndex("region_id");
 
-                    b.ToTable("SubRegions");
+                    b.ToTable("SubRegions", (string)null);
 
                     b.HasData(
                         new

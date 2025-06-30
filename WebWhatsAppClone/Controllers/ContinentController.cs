@@ -12,9 +12,10 @@ namespace WebWhatsAppClone.Controllers
         {
             _data_context = data_context;
         }
-        //public async Task<IActionResult> Store()
-        //{
+        [HttpPost("store")]
+        public async Task<IActionResult> Store([FromForm] )
+        {
 
-        //}
+        }
     }
 }
