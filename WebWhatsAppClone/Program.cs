@@ -5,6 +5,7 @@ using WebWhatsAppClone.DataBase;
 using WebWhatsAppClone.DTOs.Continent;
 using WebWhatsAppClone.DTOs.FileCategory;
 using WebWhatsAppClone.DTOs.FileFormat;
+using WebWhatsAppClone.DTOs.Region;
 using WebWhatsAppClone.Helpers;
 using WebWhatsAppClone.Services.Abstracts;
 using WebWhatsAppClone.Services.Concretes;
@@ -26,6 +27,8 @@ namespace WebWhatsAppClone
             builder.Services.AddValidatorsFromAssemblyContaining<FileCategoryUpdateDTO>();
             builder.Services.AddValidatorsFromAssemblyContaining<ContinentCreateDTO>();
             builder.Services.AddValidatorsFromAssemblyContaining<ContinentUpdateDTO>();
+            builder.Services.AddValidatorsFromAssemblyContaining<RegionCreateDTO>();
+            builder.Services.AddValidatorsFromAssemblyContaining<RegionUpdateDTO>();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

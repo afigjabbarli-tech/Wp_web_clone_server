@@ -1,8 +1,6 @@
-﻿using WebWhatsAppClone.DataBase.Base;
-
-namespace WebWhatsAppClone.DataBase.Entities
+﻿namespace WebWhatsAppClone.DTOs.Region
 {
-    public class Region : AuditableEntity<Guid, DateTimeOffset>
+    public class RegionCreateDTO
     {
         public string key { get; set; } = string.Empty;
         public string label { get; set; } = string.Empty;
@@ -17,8 +15,6 @@ namespace WebWhatsAppClone.DataBase.Entities
         public string most_populous_country { get; set; } = string.Empty;
         public double? population_density { get; set; }
         public string description { get; set; } = string.Empty;
-        public Continent continent { get; set; }
         public Guid continent_id { get; set; }
-        public ICollection<SubRegion> sub_regions { get; set; }
     }
 }

@@ -261,12 +261,15 @@ namespace WebWhatsAppClone.Controllers
                             };
                         }).ToList();
 
-                    request_end_time = DateTimeOffset.UtcNow;
-                    duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-                    var bad_request_response = new ApiResponse<List<ValidationErrorDTO>, DateTimeOffset>()
-                        .ValidationErrorResponse(request_start_time, request_end_time, duration, validation_errors);
+                    if(validation_errors.Count > 0)
+                    {
+                        request_end_time = DateTimeOffset.UtcNow;
+                        duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
+                        var bad_request_response = new ApiResponse<List<ValidationErrorDTO>, DateTimeOffset>()
+                            .ValidationErrorResponse(request_start_time, request_end_time, duration, validation_errors);
 
-                    return BadRequest(bad_request_response);
+                        return BadRequest(bad_request_response);
+                    }
                 }
 
                 _mapper.Map(DTO, founded_item);

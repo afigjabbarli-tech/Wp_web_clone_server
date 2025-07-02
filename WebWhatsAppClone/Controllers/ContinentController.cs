@@ -7,7 +7,6 @@ using WebWhatsAppClone.DataBase;
 using WebWhatsAppClone.DataBase.Entities;
 using WebWhatsAppClone.DTOs.Api;
 using WebWhatsAppClone.DTOs.Continent;
-using WebWhatsAppClone.DTOs.FileFormat;
 using WebWhatsAppClone.DTOs.Validation;
 using WebWhatsAppClone.Helpers;
 
@@ -142,7 +141,7 @@ namespace WebWhatsAppClone.Controllers
             try
             {
                 var founded_item = await _data_context.Continents.SingleOrDefaultAsync((continent) => continent.id == id);
-                if(founded_item == null)
+                if (founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
@@ -213,7 +212,7 @@ namespace WebWhatsAppClone.Controllers
             try
             {
                 var founded_item = await _data_context.Continents.SingleOrDefaultAsync((continent) => continent.id == id);
-                if(founded_item == null)
+                if (founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
@@ -225,12 +224,12 @@ namespace WebWhatsAppClone.Controllers
 
                 ValidationResult validation_result = await _continent_update_validator.ValidateAsync(DTO);
 
-                if(await _data_context.Continents.Select((continent) => continent.key).AnyAsync((k) => k == DTO.key))
+                if (await _data_context.Continents.Select((continent) => continent.key).AnyAsync((k) => k == DTO.key))
                 {
                     validation_result.Errors.Add(new ValidationFailure("key", "The provided key already exists in the system. Please choose a unique value.", DTO.key));
                 }
 
-                if(!validation_result.IsValid)
+                if (!validation_result.IsValid)
                 {
                     var validation_errors = validation_result.Errors.Select((e) =>
                     {
@@ -249,12 +248,15 @@ namespace WebWhatsAppClone.Controllers
                         };
                     }).ToList();
 
-                    request_end_time = DateTimeOffset.UtcNow;
-                    duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-                    var bad_request_response = new ApiResponse<List<ValidationErrorDTO>, DateTimeOffset>()
-                        .ValidationErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration,validation_errors: validation_errors);
+                    if(validation_errors.Count > 0)
+                    {
+                        request_end_time = DateTimeOffset.UtcNow;
+                        duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
+                        var bad_request_response = new ApiResponse<List<ValidationErrorDTO>, DateTimeOffset>()
+                            .ValidationErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, validation_errors: validation_errors);
 
-                    return BadRequest(bad_request_response);
+                        return BadRequest(bad_request_response);
+                    }
                 }
 
                 _mapper.Map(DTO, founded_item);
@@ -270,7 +272,7 @@ namespace WebWhatsAppClone.Controllers
                 var updated_response = new ApiResponse<ContinentShowDTO, DateTimeOffset>()
                     .UpdatedResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: continent_show_dto);
 
-                return Ok(updated_response);    
+                return Ok(updated_response);
             }
             catch (Exception)
             {
@@ -291,7 +293,7 @@ namespace WebWhatsAppClone.Controllers
             try
             {
                 var founded_item = await _data_context.Continents.SingleOrDefaultAsync((continent) => continent.id == id);
-                if(founded_item == null)
+                if (founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
