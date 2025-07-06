@@ -6,31 +6,33 @@ using Microsoft.EntityFrameworkCore;
 using WebWhatsAppClone.DataBase;
 using WebWhatsAppClone.DataBase.Entities;
 using WebWhatsAppClone.DTOs.Api;
-using WebWhatsAppClone.DTOs.Continent;
+using WebWhatsAppClone.DTOs.SubRegion;
 using WebWhatsAppClone.DTOs.Validation;
 using WebWhatsAppClone.Helpers;
 
 namespace WebWhatsAppClone.Controllers
 {
+    [Route("api/v1/sub-regions")]
     [ApiController]
-    [Route("api/v1/continents")]
-    public class ContinentController : ControllerBase
+    public class SubRegionController : ControllerBase
     {
+        private readonly IValidator<SubRegionCreateDTO> _sub_region_create_validator;
+        private readonly IValidator<SubRegionUpdateDTO> _sub_region_update_validator;
         private readonly DataContext _data_context;
-        private readonly IValidator<ContinentCreateDTO> _continent_create_validator;
-        private readonly IValidator<ContinentUpdateDTO> _continent_update_validator;
-        private readonly IMapper _mapper;
         private readonly ReflectionHelper _reflection_helper;
-        public ContinentController(DataContext data_context, IValidator<ContinentCreateDTO> continent_create_validator, ReflectionHelper reflection_helper, IMapper mapper, IValidator<ContinentUpdateDTO> continent_update_validator)
+        private readonly IMapper _mapper;
+
+        public SubRegionController(IValidator<SubRegionCreateDTO> sub_region_create_validator, DataContext data_context, ReflectionHelper reflection_helper, IMapper mapper, IValidator<SubRegionUpdateDTO> sub_region_update_validator)
         {
+            _sub_region_create_validator = sub_region_create_validator;
             _data_context = data_context;
-            _continent_create_validator = continent_create_validator;
             _reflection_helper = reflection_helper;
             _mapper = mapper;
-            _continent_update_validator = continent_update_validator;
+            _sub_region_update_validator = sub_region_update_validator;
         }
+
         [HttpPost("store")]
-        public async Task<IActionResult> Store([FromForm] ContinentCreateDTO DTO)
+        public async Task<IActionResult> Store([FromForm] SubRegionCreateDTO DTO)
         {
             var request_start_time = DateTimeOffset.UtcNow;
             DateTimeOffset request_end_time;
@@ -38,67 +40,74 @@ namespace WebWhatsAppClone.Controllers
 
             try
             {
-                ValidationResult validation_result = await _continent_create_validator.ValidateAsync(DTO);
+                ValidationResult validation_result = await _sub_region_create_validator.ValidateAsync(DTO);
 
-                if (await _data_context.Continents.Select((c) => c.key).AnyAsync((k) => k == DTO.key))
+                if (await _data_context.SubRegions.Select((sub_region) => sub_region.key).AnyAsync((key) => key == DTO.key))
                 {
                     validation_result.Errors.Add(new ValidationFailure("key", "The provided key already exists in the system. Please choose a unique value.", DTO.key));
                 }
 
+                var region = _data_context.Regions.SingleOrDefaultAsync((region) => region.id == DTO.region_id);
+                if (region == null)
+                {
+                    validation_result.Errors.Add(new ValidationFailure("region_id", "The specified region does not exist.", DTO.region_id));
+                }
+
                 if (!validation_result.IsValid)
                 {
-                    var validation_errors = validation_result.Errors.Select((e) =>
-                    {
-                        var suggestedValueObj = e.CustomState != null
-                        ? _reflection_helper.GetPropertyValueByPropertyName(e.CustomState!, "SuggestedValue")
-                        : null;
-
-                        var suggestedValueStr = suggestedValueObj?.ToString() ?? string.Empty;
-
-                        return new ValidationErrorDTO
+                    var validation_errors = validation_result.Errors
+                        .Select((error) =>
                         {
-                            field_name = e.PropertyName,
-                            attempted_value = e.AttemptedValue?.ToString() ?? string.Empty,
-                            error_message = e.ErrorMessage,
-                            suggested_value = suggestedValueStr
-                        };
-                    }).ToList();
+                            var suggestedValueObj = error.CustomState != null
+                            ? _reflection_helper.GetPropertyValueByPropertyName(error.CustomState!, "SuggestedValue")
+                            : null;
+
+                            var suggestedValueStr = suggestedValueObj?.ToString() ?? string.Empty;
+
+                            return new ValidationErrorDTO
+                            {
+                                field_name = error.PropertyName,
+                                attempted_value = error.AttemptedValue?.ToString() ?? string.Empty,
+                                error_message = error.ErrorMessage,
+                                suggested_value = suggestedValueStr
+                            };
+                        }).ToList();
 
                     if (validation_errors.Count > 0)
                     {
                         request_end_time = DateTimeOffset.UtcNow;
-                        duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
+                        duration = (long)(request_end_time - request_end_time).TotalMilliseconds;
                         var bad_request_response = new ApiResponse<List<ValidationErrorDTO>, DateTimeOffset>()
-                            .ValidationErrorResponse(request_start_time, request_end_time, duration, validation_errors);
-
+                            .ValidationErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, validation_errors: validation_errors);
                         return BadRequest(bad_request_response);
                     }
-
                 }
-                Continent continent = _mapper.Map<Continent>(DTO);
-                await _data_context.Continents.AddAsync(continent);
+
+                SubRegion sub_region = _mapper.Map<SubRegion>(DTO);
+
+                await _data_context.SubRegions.AddAsync(sub_region);
                 await _data_context.SaveChangesAsync();
 
-                var continent_show_dto = _mapper.Map<ContinentShowDTO>(continent);
+                var sub_region_show_dto = _mapper.Map<SubRegionShowDTO>(sub_region);
 
                 var base_url = $"{Request.Scheme}://{Request.Host.Value}";
-                var location_url = $"{base_url}{Url.Action(nameof(Show), "Continent", new { id = continent.id })}";
+                var location_url = $"{base_url}{Url.Action(nameof(Show), "SubRegion", new { id = sub_region.id })}";
 
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
 
-                var created_response = new ApiResponse<ContinentShowDTO, DateTimeOffset>()
-                    .CreatedResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: continent_show_dto, url: location_url);
+                var created_response = new ApiResponse<SubRegionShowDTO, DateTimeOffset>()
+                    .CreatedResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: sub_region_show_dto, url: location_url);
 
-                return CreatedAtAction(nameof(Show), "Continent", new { id = continent.id }, created_response);
+                return CreatedAtAction(nameof(Show), "SubRegion", new { id = sub_region.id }, created_response);
             }
             catch (Exception)
             {
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
                 var internal_server_error_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
-                    .InternalServerErrorResponse(request_start_time, request_end_time, duration);
-                return StatusCode(500, internal_server_error_response);
+                    .InternalServerErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
+                return StatusCode(StatusCodes.Status500InternalServerError, internal_server_error_response);
             }
         }
         [HttpGet("view")]
@@ -107,18 +116,16 @@ namespace WebWhatsAppClone.Controllers
             var request_start_time = DateTimeOffset.UtcNow;
             DateTimeOffset request_end_time;
             long duration;
-
             try
             {
-                var continent_view_dtos = await _data_context.Continents
-                    .Select((continent) => _mapper.Map<ContinentViewDTO>(continent))
-                    .ToListAsync();
+                var sub_region_view_dtos = await _data_context.SubRegions
+                    .Select((sub_region) => _mapper.Map<SubRegionViewDTO>(sub_region)).ToListAsync();
 
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
 
-                var read_response = new ApiResponse<List<ContinentViewDTO>, DateTimeOffset>()
-                    .ReadResponse(request_start_time, request_end_time, duration, continent_view_dtos);
+                var read_response = new ApiResponse<List<SubRegionViewDTO>, DateTimeOffset>()
+                    .ReadResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: sub_region_view_dtos);
 
                 return Ok(read_response);
             }
@@ -127,9 +134,8 @@ namespace WebWhatsAppClone.Controllers
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
                 var internal_server_error_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
-                    .InternalServerErrorResponse(request_start_time, request_end_time, duration);
-
-                return StatusCode(500, internal_server_error_response);
+                    .InternalServerErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
+                return StatusCode(StatusCodes.Status500InternalServerError, internal_server_error_response);
             }
         }
         [HttpGet("show/{id}")]
@@ -140,23 +146,24 @@ namespace WebWhatsAppClone.Controllers
             long duration;
             try
             {
-                var founded_item = await _data_context.Continents.SingleOrDefaultAsync((continent) => continent.id == id);
-                if (founded_item == null)
+                var founded_item = await _data_context.SubRegions
+                    .SingleOrDefaultAsync((sub_region) => sub_region.id == id);
+
+                if(founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
-                    duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
+                    duration = (long)(request_start_time - request_end_time).TotalMilliseconds;
                     var not_found_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
-                        .NotFoundResponse(request_start_time, request_end_time, duration);
-
+                        .NotFoundResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
                     return NotFound(not_found_response);
                 }
 
-                var continent_show_dto = _mapper.Map<ContinentShowDTO>(founded_item);
+                var sub_region_show_dto = _mapper.Map<SubRegionShowDTO>(founded_item);
                 request_end_time = DateTimeOffset.UtcNow;
-                duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-                var read_response = new ApiResponse<ContinentShowDTO, DateTimeOffset>()
-                    .ReadResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, continent_show_dto);
-
+                duration = (long)(request_end_time - request_start_time).TotalMilliseconds; 
+                
+                var read_response = new ApiResponse<SubRegionShowDTO, DateTimeOffset>()
+                    .ReadResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: sub_region_show_dto);
                 return Ok(read_response);
             }
             catch (Exception)
@@ -165,8 +172,7 @@ namespace WebWhatsAppClone.Controllers
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
                 var internal_server_error_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
                     .InternalServerErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
-
-                return StatusCode(500, internal_server_error_response);
+                return StatusCode(StatusCodes.Status500InternalServerError, internal_server_error_response);
             }
         }
         [HttpGet("pick-list")]
@@ -175,35 +181,33 @@ namespace WebWhatsAppClone.Controllers
             var request_start_time = DateTimeOffset.UtcNow;
             DateTimeOffset request_end_time;
             long duration;
+
             try
             {
-                var continent_option_dtos = await _data_context.Continents.Select((continent) =>
-                new ContinentOptionDTO
-                {
-                    label = continent.label,
-                    value = continent.id
-                }).ToListAsync();
+                var sub_region_option_dtos = await _data_context.SubRegions
+                    .Select((sub_region) => new SubRegionOptionDTO
+                    {
+                        label = sub_region.label,
+                        value = sub_region.id
+                    }).ToListAsync();
 
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-
-                var read_response = new ApiResponse<List<ContinentOptionDTO>, DateTimeOffset>()
-                    .ReadResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, continent_option_dtos);
-
+                var read_response = new ApiResponse<List<SubRegionOptionDTO>, DateTimeOffset>()
+                    .ReadResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: sub_region_option_dtos);
                 return Ok(read_response);
             }
             catch (Exception)
             {
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-
-                var internal_server_error_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
+                var internal_server_error = new ApiResponse<TemporaryEntity, DateTimeOffset>()
                     .InternalServerErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
-                return StatusCode(500, internal_server_error_response);
+                return StatusCode(StatusCodes.Status500InternalServerError, internal_server_error);
             }
         }
         [HttpPut("update/{id}")]
-        public async Task<IActionResult> Update([FromForm] ContinentUpdateDTO DTO, [FromRoute] Guid id)
+        public async Task<IActionResult> Update([FromForm] SubRegionUpdateDTO DTO, [FromRoute] Guid id)
         {
             var request_start_time = DateTimeOffset.UtcNow;
             DateTimeOffset request_end_time;
@@ -211,39 +215,46 @@ namespace WebWhatsAppClone.Controllers
 
             try
             {
-                var founded_item = await _data_context.Continents.SingleOrDefaultAsync((continent) => continent.id == id);
-                if (founded_item == null)
+                var founded_item = await _data_context.SubRegions.SingleOrDefaultAsync((sub_region) => sub_region.id == id);
+                if(founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
 
                     var not_found_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
                         .NotFoundResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
+
                     return NotFound(not_found_response);
                 }
 
-                ValidationResult validation_result = await _continent_update_validator.ValidateAsync(DTO);
+                ValidationResult validation_result = await _sub_region_update_validator.ValidateAsync(DTO);
 
-                if (await _data_context.Continents.Where((continent) => continent.id != id).Select((continent) => continent.key).AnyAsync((k) => k == DTO.key))
+                if(await _data_context.SubRegions.Where((sub_region) => sub_region.id != id).Select((sub_region) => sub_region.key).AnyAsync((key) => key == DTO.key))
                 {
                     validation_result.Errors.Add(new ValidationFailure("key", "The provided key already exists in the system. Please choose a unique value.", DTO.key));
                 }
 
-                if (!validation_result.IsValid)
+                var region = await _data_context.Regions.SingleOrDefaultAsync((region) => region.id == DTO.region_id);
+                if(region == null)
                 {
-                    var validation_errors = validation_result.Errors.Select((e) =>
+                    validation_result.Errors.Add(new ValidationFailure("region_id", "The specified region does not exist.", DTO.region_id));
+                }
+
+                if(!validation_result.IsValid)
+                {
+                    var validation_errors = validation_result.Errors.Select((error) =>
                     {
-                        var suggestedValueObj = e.CustomState != null
-                        ? _reflection_helper.GetPropertyValueByPropertyName(e.CustomState!, "SuggestedValue")
+                        var suggestedValueObj = error.CustomState != null
+                        ? _reflection_helper.GetPropertyValueByPropertyName(error.CustomState!, "SuggestedValue")
                         : null;
 
                         var suggestedValueStr = suggestedValueObj?.ToString() ?? string.Empty;
 
                         return new ValidationErrorDTO
                         {
-                            field_name = e.PropertyName,
-                            attempted_value = e.AttemptedValue?.ToString() ?? string.Empty,
-                            error_message = e.ErrorMessage,
+                            field_name = error.PropertyName,
+                            attempted_value = error.AttemptedValue?.ToString() ?? string.Empty,
+                            error_message = error.ErrorMessage,
                             suggested_value = suggestedValueStr
                         };
                     }).ToList();
@@ -261,16 +272,16 @@ namespace WebWhatsAppClone.Controllers
 
                 _mapper.Map(DTO, founded_item);
 
-                _data_context.Continents.Update(founded_item);
+                _data_context.SubRegions.Update(founded_item);
                 await _data_context.SaveChangesAsync();
 
-                var continent_show_dto = _mapper.Map<ContinentShowDTO>(founded_item);
+                var sub_region_show_dto = _mapper.Map<SubRegionShowDTO>(founded_item);
 
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
 
-                var updated_response = new ApiResponse<ContinentShowDTO, DateTimeOffset>()
-                    .UpdatedResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: continent_show_dto);
+                var updated_response = new ApiResponse<SubRegionShowDTO, DateTimeOffset>()
+                    .UpdatedResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration, data: sub_region_show_dto);
 
                 return Ok(updated_response);
             }
@@ -278,22 +289,22 @@ namespace WebWhatsAppClone.Controllers
             {
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-
-                var internal_server_error_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
+                var internal_server_error = new ApiResponse<TemporaryEntity, DateTimeOffset>()
                     .InternalServerErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
-                return StatusCode(500, internal_server_error_response);
+                return StatusCode(StatusCodes.Status500InternalServerError, internal_server_error);
             }
         }
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             var request_start_time = DateTimeOffset.UtcNow;
-            long duration;
             DateTimeOffset request_end_time;
+            long duration;
+
             try
             {
-                var founded_item = await _data_context.Continents.SingleOrDefaultAsync((continent) => continent.id == id);
-                if (founded_item == null)
+                var founded_item = await _data_context.SubRegions.SingleOrDefaultAsync((sub_region) => sub_region.id == id);
+                if(founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
@@ -303,25 +314,23 @@ namespace WebWhatsAppClone.Controllers
                     return NotFound(not_found_response);
                 }
 
-                _data_context.Continents.Remove(founded_item);
+                _data_context.SubRegions.Remove(founded_item);
                 await _data_context.SaveChangesAsync();
 
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-
                 var deleted_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
-                    .DeletedResponse(request_start_time, request_end_time, duration);
+                    .DeletedResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
 
-                return StatusCode(204, deleted_response);
+                return StatusCode(StatusCodes.Status204NoContent, deleted_response);
             }
             catch (Exception)
             {
                 request_end_time = DateTimeOffset.UtcNow;
                 duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
-
-                var internal_server_error_response = new ApiResponse<TemporaryEntity, DateTimeOffset>()
+                var internal_server_error = new ApiResponse<TemporaryEntity, DateTimeOffset>()
                     .InternalServerErrorResponse(request_time: request_start_time, response_time: request_end_time, duration_ms: duration);
-                return StatusCode(500, internal_server_error_response);
+                return StatusCode(StatusCodes.Status500InternalServerError, internal_server_error);
             }
         }
     }

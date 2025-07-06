@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using WebWhatsAppClone.DataBase;
 using WebWhatsAppClone.DataBase.Entities;
 using WebWhatsAppClone.DTOs.Api;
-using WebWhatsAppClone.DTOs.Continent;
 using WebWhatsAppClone.DTOs.Region;
 using WebWhatsAppClone.DTOs.Validation;
 using WebWhatsAppClone.Helpers;
@@ -150,7 +149,7 @@ namespace WebWhatsAppClone.Controllers
             try
             {
                 var founded_item = await _data_context.Regions.SingleOrDefaultAsync((region) => region.id == id);
-                if(founded_item == null)
+                if (founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
@@ -218,7 +217,7 @@ namespace WebWhatsAppClone.Controllers
             try
             {
                 var founded_item = await _data_context.Regions.SingleOrDefaultAsync((region) => region.id == id);
-                if(founded_item == null)
+                if (founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
@@ -231,18 +230,18 @@ namespace WebWhatsAppClone.Controllers
 
                 ValidationResult validation_result = await _region_update_validator.ValidateAsync(DTO);
 
-                if(await _data_context.Regions.Select((region) => region.key).AnyAsync((key) => key == DTO.key))
+                if (await _data_context.Regions.Where((region) => region.id != id).Select((region) => region.key).AnyAsync((key) => key == DTO.key))
                 {
                     validation_result.Errors.Add(new ValidationFailure("key", "The provided key already exists in the system. Please choose a unique value.", DTO.key));
                 }
 
                 var continent = await _data_context.Continents.SingleOrDefaultAsync((continent) => continent.id == DTO.continent_id);
-                if(continent == null)
+                if (continent == null)
                 {
                     validation_result.Errors.Add(new ValidationFailure("continent_id", "The specified continent does not exist.", DTO.continent_id));
                 }
 
-                if(!validation_result.IsValid)
+                if (!validation_result.IsValid)
                 {
                     var validation_errors = validation_result.Errors.Select((error) =>
                     {
@@ -261,7 +260,7 @@ namespace WebWhatsAppClone.Controllers
                         };
                     }).ToList();
 
-                    if(validation_errors.Count > 0)
+                    if (validation_errors.Count > 0)
                     {
                         request_end_time = DateTimeOffset.UtcNow;
                         duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
@@ -306,7 +305,7 @@ namespace WebWhatsAppClone.Controllers
             try
             {
                 var founded_item = await _data_context.Regions.SingleOrDefaultAsync((region) => region.id == id);
-                if(founded_item == null)
+                if (founded_item == null)
                 {
                     request_end_time = DateTimeOffset.UtcNow;
                     duration = (long)(request_end_time - request_start_time).TotalMilliseconds;
