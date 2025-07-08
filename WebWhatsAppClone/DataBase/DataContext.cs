@@ -3,6 +3,7 @@ using System.Reflection;
 using WebWhatsAppClone.DataBase.Base;
 using File = WebWhatsAppClone.DataBase.Entities.File;
 using WebWhatsAppClone.DataBase.Entities;
+using WebWhatsAppClone.DataBase.Bridge;
 
 namespace WebWhatsAppClone.DataBase
 {
@@ -21,6 +22,10 @@ namespace WebWhatsAppClone.DataBase
         public DbSet<Continent> Continents { get; set; }
         public DbSet<Region> Regions { get; set; }
         public DbSet<SubRegion> SubRegions { get; set; }
+        public DbSet<Country> Countries { get; set; } 
+        public DbSet<SubRegionCountry> SubRegionCountries { get; set; } 
+        public DbSet<PhoneCode> PhoneCodes { get; set; }    
+        public DbSet<CountryPhoneCode> CountryPhoneCodes { get; set; }  
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var entity_entries = ChangeTracker.Entries<AuditableEntity<Guid, DateTimeOffset>>();

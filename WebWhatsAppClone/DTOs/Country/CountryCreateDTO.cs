@@ -1,9 +1,6 @@
-﻿using WebWhatsAppClone.DataBase.Base;
-using WebWhatsAppClone.DataBase.Bridge;
-
-namespace WebWhatsAppClone.DataBase.Entities
+﻿namespace WebWhatsAppClone.DTOs.Country
 {
-    public class Country : AuditableEntity<Guid, DateTimeOffset>
+    public class CountryCreateDTO
     {
         public string name { get; set; } = string.Empty;
         public string key { get; set; } = string.Empty;
@@ -20,7 +17,6 @@ namespace WebWhatsAppClone.DataBase.Entities
         public long? population { get; set; }
         public double population_density { get; set; }
         public string demonym { get; set; } = string.Empty;
-        public IList<CountryPhoneCode> country_phone_codes { get; set; }
-        public IList<SubRegionCountry> sub_region_countries { get; set; }
+        public Guid[] sub_region_ids { get; set; }
     }
 }

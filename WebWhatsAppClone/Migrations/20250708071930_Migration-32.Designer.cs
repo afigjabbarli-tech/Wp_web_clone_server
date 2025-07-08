@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebWhatsAppClone.DataBase;
@@ -11,9 +12,11 @@ using WebWhatsAppClone.DataBase;
 namespace WebWhatsAppClone.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250708071930_Migration-32")]
+    partial class Migration32
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -391,100 +394,6 @@ namespace WebWhatsAppClone.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Countries");
-
-                    b.HasData(
-                        new
-                        {
-                            id = new Guid("691a19d9-355d-468f-a803-147c8b0d9a2d"),
-                            area_km2 = 783562.0,
-                            capital = "Ankara",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            currency_code = "TRY",
-                            currency_name = "Turkish Lira",
-                            demonym = "Turkish",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            iso_alpha2_code = "TR",
-                            iso_alpha3_code = "TUR",
-                            iso_numeric = 792,
-                            key = "TR",
-                            name = "Türkiye",
-                            native_name = "Türkiye",
-                            official_name = "Türkiye Cumhuriyeti",
-                            population = 85000000L,
-                            population_density = 108.40000000000001,
-                            tld = ".tr"
-                        },
-                        new
-                        {
-                            id = new Guid("067716d7-58c7-45d8-a8dd-ba39b5cd1ca3"),
-                            area_km2 = 86600.0,
-                            capital = "Bakü",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            currency_code = "AZN",
-                            currency_name = "Azerbaijani Manat",
-                            demonym = "Azerbaijani",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            iso_alpha2_code = "AZ",
-                            iso_alpha3_code = "AZE",
-                            iso_numeric = 31,
-                            key = "AZ",
-                            name = "Azerbaycan",
-                            native_name = "Azərbaycan",
-                            official_name = "Azərbaycan Respublikası",
-                            population = 10100000L,
-                            population_density = 116.7,
-                            tld = ".az"
-                        },
-                        new
-                        {
-                            id = new Guid("68c58e59-6c48-490d-9a6f-d2db12644a8b"),
-                            area_km2 = 69700.0,
-                            capital = "Tiflis",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            currency_code = "GEL",
-                            currency_name = "Georgian Lari",
-                            demonym = "Georgian",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            iso_alpha2_code = "GE",
-                            iso_alpha3_code = "GEO",
-                            iso_numeric = 268,
-                            key = "GE",
-                            name = "Gürcistan",
-                            native_name = "საქართველო",
-                            official_name = "საქართველო",
-                            population = 3700000L,
-                            population_density = 53.100000000000001,
-                            tld = ".ge"
-                        },
-                        new
-                        {
-                            id = new Guid("4a1eadb4-b76d-448d-b8fb-95adf7734f30"),
-                            area_km2 = 1648195.0,
-                            capital = "Tahran",
-                            created_at = new DateTimeOffset(new DateTime(2025, 1, 30, 13, 45, 23, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            currency_code = "IRR",
-                            currency_name = "Iranian Rial",
-                            demonym = "Iranian",
-                            is_active = true,
-                            is_deleted = false,
-                            is_updated = false,
-                            iso_alpha2_code = "IR",
-                            iso_alpha3_code = "IRN",
-                            iso_numeric = 364,
-                            key = "IR",
-                            name = "İran",
-                            native_name = "ایران",
-                            official_name = "جمهوری اسلامی ایران",
-                            population = 85000000L,
-                            population_density = 51.5,
-                            tld = ".ir"
-                        });
                 });
 
             modelBuilder.Entity("WebWhatsAppClone.DataBase.Entities.File", b =>

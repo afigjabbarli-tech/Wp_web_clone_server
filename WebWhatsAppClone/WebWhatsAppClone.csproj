@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Constants\" />
-    <Folder Include="DTOs\Country\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

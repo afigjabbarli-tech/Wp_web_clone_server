@@ -1,4 +1,5 @@
 ﻿using WebWhatsAppClone.DataBase.Base;
+using WebWhatsAppClone.DataBase.Bridge;
 
 namespace WebWhatsAppClone.DataBase.Entities
 {
@@ -19,5 +20,6 @@ namespace WebWhatsAppClone.DataBase.Entities
         public string description { get; set; } = string.Empty;
         public Region region { get; set; }
         public Guid region_id { get; set; }
+        public IList<SubRegionCountry> sub_region_countries { get; set; }
     }
 }
